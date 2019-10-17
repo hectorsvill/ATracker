@@ -701,22 +701,22 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Tracker-->
+        <!--Tracker View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ATracker" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ATrackerViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCr-w6-Las">
-                                <rect key="frame" x="20" y="20" width="440" height="230"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <clipView key="contentView" id="uFg-Ci-Rtt">
-                                    <rect key="frame" x="1" y="1" width="438" height="228"/>
+                                    <rect key="frame" x="1" y="1" width="478" height="268"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="HZi-DI-6Nn">
-                                            <rect key="frame" x="0.0" y="0.0" width="438" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="478" height="268"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -724,7 +724,7 @@
                                             <tableColumns>
                                                 <tableColumn width="116" minWidth="40" maxWidth="1000" id="unm-o6-1mG">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="label" size="11"/>
+                                                        <font key="font" metaFont="message" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -756,6 +756,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="XfG-lQ-9wD" id="AAO-XY-ltJ"/>
+                                                <outlet property="delegate" destination="XfG-lQ-9wD" id="AUB-KM-9fh"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -770,12 +774,15 @@
                             </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="jCr-w6-Las" secondAttribute="bottom" constant="20" id="2ed-IP-B19"/>
-                            <constraint firstItem="jCr-w6-Las" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="CRr-qT-Pe2"/>
-                            <constraint firstItem="jCr-w6-Las" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="miT-5r-VWA"/>
-                            <constraint firstAttribute="trailing" secondItem="jCr-w6-Las" secondAttribute="trailing" constant="20" id="xk3-e8-eHV"/>
+                            <constraint firstAttribute="bottom" secondItem="jCr-w6-Las" secondAttribute="bottom" id="2ed-IP-B19"/>
+                            <constraint firstItem="jCr-w6-Las" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="CRr-qT-Pe2"/>
+                            <constraint firstItem="jCr-w6-Las" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="miT-5r-VWA"/>
+                            <constraint firstAttribute="trailing" secondItem="jCr-w6-Las" secondAttribute="trailing" id="xk3-e8-eHV"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="HZi-DI-6Nn" id="iyD-6B-1M6"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
