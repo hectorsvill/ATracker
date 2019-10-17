@@ -9,11 +9,10 @@
 import Cocoa
 
 class ATrackerViewController: NSViewController {
+    
+    let list = ["list one", "list two", "list 100"]
+    
     @IBOutlet weak var tableView: NSTableView!
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,7 +26,7 @@ class ATrackerViewController: NSViewController {
 extension ATrackerViewController: NSTableViewDataSource{
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 5
+        return list.count
     }
 }
 
@@ -38,7 +37,7 @@ extension ATrackerViewController: NSTableViewDelegate {
         
         let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
         
-        cell.textField?.stringValue = "\(row)"
+        cell.textField?.stringValue = "\(list[row]): \(10000004534530 * row)"
         
         return cell
     }
