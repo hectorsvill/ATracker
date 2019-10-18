@@ -795,10 +795,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
-        <!--View Controller-->
+        <!--Tracker Tab Item View Controller-->
         <scene sceneID="Qrj-Am-RC8">
             <objects>
-                <viewController id="LaA-bP-QyR" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ATrackerItemBar" id="LaA-bP-QyR" customClass="ATrackerTabItemViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Rc7-Hb-G8T">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
