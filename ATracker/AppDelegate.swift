@@ -10,22 +10,22 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
-        statusItem.button?.title = "ATracker"
-        statusItem.button?.target = self
-        
-        statusItem.button?.action = #selector(trackIt)
-        
+        setupStatusItem()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
 
+    
+    private func setupStatusItem() {
+        statusItem.button?.title = "ATracker"
+        statusItem.button?.target = self
+        statusItem.button?.action = #selector(trackIt)
+    }
     
     @objc
     func trackIt() {
