@@ -805,11 +805,12 @@
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="J0r-qW-vsg">
                                 <rect key="frame" x="20" y="235" width="410" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="hqj-fn-cfL">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Title" drawsBackground="YES" id="hqj-fn-cfL">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <accessibility description="Add your ATracker Title"/>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vBX-Rk-zmb">
                                 <rect key="frame" x="18" y="264" width="414" height="16"/>
@@ -826,6 +827,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="trackButtonPressed:" target="LaA-bP-QyR" id="tpU-YP-3R1"/>
+                                </connections>
                             </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRi-U3-8ID">
                                 <rect key="frame" x="20" y="62" width="410" height="165"/>
@@ -867,6 +871,12 @@
                             <constraint firstItem="yRi-U3-8ID" firstAttribute="leading" secondItem="Rc7-Hb-G8T" secondAttribute="leading" constant="20" id="zK2-MQ-PVo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aTrackerLabel" destination="J0r-qW-vsg" id="ee3-he-a3W"/>
+                        <outlet property="aTrakcerSummaryScrollView" destination="yRi-U3-8ID" id="mrz-GS-oTj"/>
+                        <outlet property="titleTextField" destination="J0r-qW-vsg" id="Mbc-2X-dV3"/>
+                        <outlet property="trackButton" destination="YGd-5h-CL0" id="mQr-e1-Z7w"/>
+                    </connections>
                 </viewController>
                 <customObject id="yjx-Ig-4P7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
