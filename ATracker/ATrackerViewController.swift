@@ -37,7 +37,7 @@ extension ATrackerViewController: NSTableViewDelegate {
         
         let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
         
-        cell.textField?.stringValue = "\(list[row]): \(10000004534530 * row)"
+        cell.textField?.stringValue = "\(list[row])"
         
         return cell
     }
