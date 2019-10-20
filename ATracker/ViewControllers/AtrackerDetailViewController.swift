@@ -12,21 +12,37 @@ class AtrackerDetailViewController: NSViewController {
 
     @IBOutlet var titleTextField: NSTextField!
     @IBOutlet var summaryTextView: NSTextView!
+    @IBOutlet var saveButton: NSButton!
+    @IBOutlet var startButton: NSButton!
+    @IBOutlet var stopButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        
+        setupViews()
     }
     
-    @IBAction func saveButtonPressed(_ sender: Any) {
-        print("here")
+    private func setupViews() {
+//        guard let title = titleTextField?.stringValue, let summary = summaryTextView?.string else { return }
+        
+        saveButton.action = #selector(saveTrackButtonPressed)
+        startButton.action = #selector(startTrackingButtonPressed)
+        stopButton.action = #selector(stopTrackingButtonPressed)
     }
     
-    @IBAction func stopTrackingButtonPressed(_ sender: Any) {
-        print("here")
+    @objc
+    func saveTrackButtonPressed() {
+        print(titleTextField.stringValue.isEmpty)
     }
     
-    @IBAction func startTrackingButtonPressed(_ sender: Any) {
+    @objc
+    func stopTrackingButtonPressed() {
+        print(summaryTextView.string)
+    }
+    
+    @objc
+    func startTrackingButtonPressed() {
         print("here")
     }
 }

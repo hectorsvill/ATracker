@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                                 <clipView key="contentView" id="dGI-7d-9TM">
                                     <rect key="frame" x="1" y="1" width="248" height="298"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Oi4-oG-kp3">
                                             <rect key="frame" x="0.0" y="0.0" width="248" height="298"/>
@@ -102,7 +102,7 @@
                                             <tableColumns>
                                                 <tableColumn width="245" minWidth="40" maxWidth="1000" id="eR4-Xl-TH4">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
+                                                        <font key="font" metaFont="label" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -181,7 +181,7 @@
                                 <rect key="frame" x="20" y="64" width="436" height="362"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="sML-Xj-K9K">
                                     <rect key="frame" x="0.0" y="0.0" width="436" height="362"/>
-                                    <autoresizingMask key="autoresizingMask"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="zDk-N9-hTX">
                                             <rect key="frame" x="0.0" y="0.0" width="436" height="362"/>
@@ -278,10 +278,13 @@
                     </view>
                     <connections>
                         <outlet property="SaveButton" destination="fEe-cb-SgJ" id="ElL-6X-OHN"/>
+                        <outlet property="saveButton" destination="fEe-cb-SgJ" id="PbD-Vk-Zas"/>
+                        <outlet property="startButton" destination="8W9-7e-pM7" id="TFB-aW-Afi"/>
                         <outlet property="startTrackingButton" destination="8W9-7e-pM7" id="9L1-zV-VbG"/>
+                        <outlet property="stopButton" destination="5c6-HJ-Dcf" id="qVv-hW-kNk"/>
                         <outlet property="stopTrackingButton" destination="5c6-HJ-Dcf" id="gVw-jn-rxZ"/>
-                        <outlet property="summaryTextView" destination="zDk-N9-hTX" id="C7G-Qr-59E"/>
-                        <outlet property="titleTextField" destination="QF3-P5-N7n" id="gpk-my-FlJ"/>
+                        <outlet property="summaryTextView" destination="zDk-N9-hTX" id="gxS-Me-LIz"/>
+                        <outlet property="titleTextField" destination="QF3-P5-N7n" id="K5A-TN-twv"/>
                     </connections>
                 </viewController>
                 <customObject id="RW4-ci-6nw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
