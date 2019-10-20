@@ -1,20 +1,18 @@
 //
-//  ATrackerTabItemViewController.swift
+//  ATrackerDetailView.swift
 //  ATracker
 //
-//  Created by Hector on 10/17/19.
+//  Created by Hector on 10/19/19.
 //  Copyright © 2019 Hector. All rights reserved.
 //
 
 import Cocoa
 
-class ATrackerTabItemViewController: NSViewController {
-
+class ATrackerDetailViewController: NSSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
     
-
 }

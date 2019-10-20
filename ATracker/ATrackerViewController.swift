@@ -12,9 +12,12 @@ class ATrackerViewController: NSViewController {
     
     let list = ["list one", "list two", "list 100"]
     
-    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet var tableView: NSTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override var representedObject: Any? {
