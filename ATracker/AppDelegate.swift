@@ -20,9 +20,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
     }
 
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
+    }
     
     private func setupStatusItem() {
-        statusItem.button?.title = "ATracker"
+        statusItem.button?.title = "𝓪Tracker"
         statusItem.button?.target = self
         statusItem.button?.action = #selector(trackIt)
     }
