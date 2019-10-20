@@ -220,21 +220,21 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fEe-cb-SgJ">
-                                <rect key="frame" x="20" y="19" width="42" height="25"/>
-                                <buttonCell key="cell" type="roundRect" title="Save" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zgx-UV-Fk7">
+                                <rect key="frame" x="14" y="13" width="109" height="35"/>
+                                <buttonCell key="cell" type="push" title="Save Notes" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="zgx-UV-Fk7">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5c6-HJ-Dcf">
-                                <rect key="frame" x="363" y="19" width="93" height="17"/>
-                                <buttonCell key="cell" type="roundRect" title="Stop Tracking" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zch-Dg-ehC">
+                                <rect key="frame" x="338" y="13" width="124" height="27"/>
+                                <buttonCell key="cell" type="push" title="Stop Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zch-Dg-ehC">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8W9-7e-pM7">
-                                <rect key="frame" x="235" y="8" width="126" height="32"/>
+                                <rect key="frame" x="216" y="8" width="126" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start Tracking" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0N9-lX-LVm">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -268,7 +268,7 @@
                             <constraint firstItem="xoy-iP-pbV" firstAttribute="top" secondItem="fXp-js-M62" secondAttribute="bottom" constant="8" id="jqx-PI-S79"/>
                             <constraint firstItem="fEe-cb-SgJ" firstAttribute="leading" secondItem="GBU-ho-Q7H" secondAttribute="leading" constant="20" id="m6B-24-zhi"/>
                             <constraint firstAttribute="bottom" secondItem="8W9-7e-pM7" secondAttribute="bottom" constant="15" id="ode-be-7pZ"/>
-                            <constraint firstItem="8W9-7e-pM7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fEe-cb-SgJ" secondAttribute="trailing" constant="8" symbolic="YES" id="sUp-xe-FXV"/>
+                            <constraint firstItem="8W9-7e-pM7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fEe-cb-SgJ" secondAttribute="trailing" constant="12" symbolic="YES" id="sUp-xe-FXV"/>
                             <constraint firstItem="QF3-P5-N7n" firstAttribute="top" secondItem="GBU-ho-Q7H" secondAttribute="top" constant="20" id="tQL-51-sG9"/>
                             <constraint firstItem="5c6-HJ-Dcf" firstAttribute="leading" secondItem="8W9-7e-pM7" secondAttribute="trailing" constant="8" id="tsI-JD-Qc2"/>
                             <constraint firstItem="fEe-cb-SgJ" firstAttribute="top" secondItem="xoy-iP-pbV" secondAttribute="bottom" constant="20" id="u4Z-H5-Vhf"/>
@@ -278,8 +278,10 @@
                     </view>
                     <connections>
                         <outlet property="SaveButton" destination="fEe-cb-SgJ" id="ElL-6X-OHN"/>
+                        <outlet property="endTextField" destination="fXp-js-M62" id="xv6-4v-qj4"/>
                         <outlet property="saveButton" destination="fEe-cb-SgJ" id="PbD-Vk-Zas"/>
                         <outlet property="startButton" destination="8W9-7e-pM7" id="TFB-aW-Afi"/>
+                        <outlet property="startTextField" destination="xrj-Qn-NW3" id="7yQ-YI-8wF"/>
                         <outlet property="startTrackingButton" destination="8W9-7e-pM7" id="9L1-zV-VbG"/>
                         <outlet property="stopButton" destination="5c6-HJ-Dcf" id="qVv-hW-kNk"/>
                         <outlet property="stopTrackingButton" destination="5c6-HJ-Dcf" id="gVw-jn-rxZ"/>
