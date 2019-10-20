@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     
     private func setupStatusItem() {
-        statusItem.button?.title = "ATracker"
+        statusItem.button?.title = "𝓪Tracker"
         statusItem.button?.target = self
         statusItem.button?.action = #selector(trackIt)
     }

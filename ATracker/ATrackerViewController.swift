@@ -24,7 +24,6 @@ class ATrackerViewController: NSViewController {
 }
 
 extension ATrackerViewController: NSTableViewDataSource{
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return list.count
     }
