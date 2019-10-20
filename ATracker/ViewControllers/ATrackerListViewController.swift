@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ATrackerViewController: NSViewController {
+class ATrackerListViewController: NSViewController {
     
     let list = ["list one", "list two", "list 100"]
     
@@ -26,13 +26,13 @@ class ATrackerViewController: NSViewController {
     }
 }
 
-extension ATrackerViewController: NSTableViewDataSource{
+extension ATrackerListViewController: NSTableViewDataSource{
     func numberOfRows(in tableView: NSTableView) -> Int {
         return list.count
     }
 }
 
-extension ATrackerViewController: NSTableViewDelegate {
+extension ATrackerListViewController: NSTableViewDelegate {
     
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

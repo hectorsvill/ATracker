@@ -79,10 +79,10 @@
             </objects>
             <point key="canvasLocation" x="718" y="243"/>
         </scene>
-        <!--Tracker View Controller-->
+        <!--Tracker List View Controller-->
         <scene sceneID="Vmz-bB-xxU">
             <objects>
-                <viewController id="Gjn-Qy-BNm" customClass="ATrackerViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Gjn-Qy-BNm" customClass="ATrackerListViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="X62-SL-TEH">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                                 <clipView key="contentView" id="dGI-7d-9TM">
                                     <rect key="frame" x="1" y="1" width="248" height="298"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="Oi4-oG-kp3">
                                             <rect key="frame" x="0.0" y="0.0" width="248" height="298"/>
@@ -181,7 +181,7 @@
                                 <rect key="frame" x="20" y="64" width="436" height="362"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="sML-Xj-K9K">
                                     <rect key="frame" x="0.0" y="0.0" width="436" height="362"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="zDk-N9-hTX">
                                             <rect key="frame" x="0.0" y="0.0" width="436" height="362"/>
