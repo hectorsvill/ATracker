@@ -21,39 +21,33 @@ class ATrackerListViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-    override var representedObject: Any? {
-        didSet {
-        }
-    }
     
     private func setupStatusItem() {
-           statusItem.button?.title = "𝓪Tracker"
-           statusItem.button?.target = self
-           statusItem.button?.action = #selector(trackIt)
-       }
+        statusItem.button?.title = "𝓪Tracker"
+        statusItem.button?.target = self
+        statusItem.button?.action = #selector(trackIt)
+    }
     
     @objc
-       func trackIt() {
-           let storyboad = NSStoryboard(name: "Main", bundle: nil)
-           guard let vc = storyboad.instantiateController(withIdentifier: "ATrackerItemBar") as? ATrackerTabItemViewController else {
-               fatalError("Error getting status button item")
-           }
-         
+    func trackIt() {
+        let storyboad = NSStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboad.instantiateController(withIdentifier: "ATrackerItemBar") as? ATrackerTabItemViewController else {
+            fatalError("Error getting status button item")
+        }
+
+        let popoverView = NSPopover()
+        popoverView.contentViewController = vc
+        popoverView.behavior = .transient
            
-           let popoverView = NSPopover()
-           popoverView.contentViewController = vc
-           popoverView.behavior = .transient
+        guard let button = statusItem.button else {
+            fatalError("Couldnt find status item button")
+        }
            
-           guard let button = statusItem.button else {
-               fatalError("Couldnt find status item button")
-           }
-           
-           popoverView.show(relativeTo: button.bounds, of: button, preferredEdge: .maxX)
-       }
-    
-    
+        popoverView.show(relativeTo: button.bounds, of: button, preferredEdge: .maxX)
+    }
 }
+
+ // MARK: NSTableViewDataSource
 
 extension ATrackerListViewController: NSTableViewDataSource{
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -61,16 +55,11 @@ extension ATrackerListViewController: NSTableViewDataSource{
     }
 }
 
+// MARK: NSTableViewDelegate
 extension ATrackerListViewController: NSTableViewDelegate {
-    
-    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
-        
         cell.textField?.stringValue = "\(list[row])"
-        
         return cell
     }
-
 }
