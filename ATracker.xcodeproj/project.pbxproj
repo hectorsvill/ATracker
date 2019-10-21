@@ -7,24 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */; };
+		C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */; };
 		C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451F92358131B007F0613 /* AppDelegate.swift */; };
-		C45451FC2358131B007F0613 /* ATrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451FB2358131B007F0613 /* ATrackerViewController.swift */; };
+		C45451FC2358131B007F0613 /* ATrackerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451FB2358131B007F0613 /* ATrackerListViewController.swift */; };
 		C45451FE2358131E007F0613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45451FD2358131E007F0613 /* Assets.xcassets */; };
 		C45452012358131E007F0613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45451FF2358131E007F0613 /* Main.storyboard */; };
 		C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */; };
 		C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */; };
+		C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B66235D58710081D765 /* CoreDataStack.swift */; };
+		C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B68235D5C170081D765 /* ATrackerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C41CCC4C235D5E9D007280BB /* ATracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATracker.xcdatamodel; sourceTree = "<group>"; };
+		C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ATrack+Convenience.swift"; sourceTree = "<group>"; };
 		C45451F62358131B007F0613 /* ATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45451F92358131B007F0613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C45451FB2358131B007F0613 /* ATrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerViewController.swift; sourceTree = "<group>"; };
+		C45451FB2358131B007F0613 /* ATrackerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerListViewController.swift; sourceTree = "<group>"; };
 		C45451FD2358131E007F0613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C45452002358131E007F0613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C45452022358131E007F0613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C45452032358131E007F0613 /* ATracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ATracker.entitlements; sourceTree = "<group>"; };
 		C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerTabItemViewController.swift; sourceTree = "<group>"; };
 		C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtrackerDetailViewController.swift; sourceTree = "<group>"; };
+		C49D3B66235D58710081D765 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C49D3B68235D5C170081D765 /* ATrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,23 +66,51 @@
 			isa = PBXGroup;
 			children = (
 				C45451F92358131B007F0613 /* AppDelegate.swift */,
-				C49D3B5E235C25580081D765 /* ViewControllers */,
+				C49D3B6A235D5C1D0081D765 /* Model Controller */,
+				C49D3B65235D57190081D765 /* Models */,
+				C49D3B5E235C25580081D765 /* View Controllers */,
+				C49D3B61235D56230081D765 /* Resources */,
+			);
+			path = ATracker;
+			sourceTree = "<group>";
+		};
+		C49D3B5E235C25580081D765 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C45451FB2358131B007F0613 /* ATrackerListViewController.swift */,
+				C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */,
+				C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C49D3B61235D56230081D765 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				C45451FF2358131E007F0613 /* Main.storyboard */,
 				C45451FD2358131E007F0613 /* Assets.xcassets */,
 				C45452022358131E007F0613 /* Info.plist */,
 				C45452032358131E007F0613 /* ATracker.entitlements */,
 			);
-			path = ATracker;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		C49D3B5E235C25580081D765 /* ViewControllers */ = {
+		C49D3B65235D57190081D765 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C45451FB2358131B007F0613 /* ATrackerViewController.swift */,
-				C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */,
-				C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */,
+				C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */,
+				C49D3B66235D58710081D765 /* CoreDataStack.swift */,
+				C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */,
 			);
-			path = ViewControllers;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C49D3B6A235D5C1D0081D765 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C49D3B68235D5C170081D765 /* ATrackerController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,8 +184,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */,
+				C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */,
+				C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */,
 				C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */,
-				C45451FC2358131B007F0613 /* ATrackerViewController.swift in Sources */,
+				C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */,
+				C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */,
+				C45451FC2358131B007F0613 /* ATrackerListViewController.swift in Sources */,
 				C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,12 +325,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ATracker/ATracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ATracker/Resources/ATracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = ATracker/Info.plist;
+				INFOPLIST_FILE = ATracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -305,12 +345,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ATracker/ATracker.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ATracker/Resources/ATracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 97AS6JS382;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = ATracker/Info.plist;
+				INFOPLIST_FILE = ATracker/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -343,6 +383,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C41CCC4C235D5E9D007280BB /* ATracker.xcdatamodel */,
+			);
+			currentVersion = C41CCC4C235D5E9D007280BB /* ATracker.xcdatamodel */;
+			path = ATracker.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C45451EE2358131B007F0613 /* Project object */;
 }
