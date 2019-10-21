@@ -9,8 +9,9 @@
 import Cocoa
 
 class ATrackerListViewController: NSViewController {
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let aTrackerController = ATrackerController()
     
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let list = ["list one", "list two", "list 100"]
     
     @IBOutlet var tableView: NSTableView!
@@ -20,6 +21,9 @@ class ATrackerListViewController: NSViewController {
         setupStatusItem()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        print(aTrackerController.ATrackerList.count)
+        
     }
     
     private func setupStatusItem() {

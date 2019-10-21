@@ -12,9 +12,15 @@ import CoreData
 class ATrackerController {
     
     var ATrackerList: [ATrack] {
+        let fetchRequest: NSFetchRequest<ATrack> = ATrack.fetchRequest()
+        let moc = CoreDataStack.shared.mainContext
         
-        
-        return []
+        do {
+            return try moc.fetch(fetchRequest)
+        } catch {
+            NSLog("Error fetching task: \(error)")
+            return []
+        }
     }
     
     
