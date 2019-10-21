@@ -14,6 +14,7 @@
 		C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */; };
 		C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */; };
 		C49D3B64235D56C70081D765 /* ATracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B62235D56C70081D765 /* ATracker.xcdatamodeld */; };
+		C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B66235D58710081D765 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerTabItemViewController.swift; sourceTree = "<group>"; };
 		C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtrackerDetailViewController.swift; sourceTree = "<group>"; };
 		C49D3B63235D56C70081D765 /* ATracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATracker.xcdatamodel; sourceTree = "<group>"; };
+		C49D3B66235D58710081D765 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				C45451F92358131B007F0613 /* AppDelegate.swift */,
-				C49D3B65235D57190081D765 /* Model */,
+				C49D3B65235D57190081D765 /* Models */,
 				C49D3B5E235C25580081D765 /* View Controllers */,
 				C49D3B61235D56230081D765 /* Resources */,
 			);
@@ -88,12 +90,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		C49D3B65235D57190081D765 /* Model */ = {
+		C49D3B65235D57190081D765 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C49D3B62235D56C70081D765 /* ATracker.xcdatamodeld */,
+				C49D3B66235D58710081D765 /* CoreDataStack.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +172,7 @@
 				C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */,
 				C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */,
 				C49D3B64235D56C70081D765 /* ATracker.xcdatamodeld in Sources */,
+				C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */,
 				C45451FC2358131B007F0613 /* ATrackerListViewController.swift in Sources */,
 				C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */,
 			);
