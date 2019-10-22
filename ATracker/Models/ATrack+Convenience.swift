@@ -17,5 +17,4 @@ extension ATrack {
         self.start = start
         self.end = end
     }
-    
 }
