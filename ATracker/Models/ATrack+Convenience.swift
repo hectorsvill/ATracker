@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension ATrack {
-    convenience init(title: String, summary: String? = nil, start: Date, end: Date, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
+    convenience init(title: String, summary: String? = nil, start: Date, end: Date? = nil, context: NSManagedObjectContext = CoreDataStack.shared.mainContext) {
         self.init(context: context)
         self.title = title
         self.summary = summary

@@ -10,16 +10,14 @@ import Cocoa
 
 class ATrackerTabItemViewController: NSViewController {
 
-    
     @IBOutlet var titleTextField: NSTextField!
     @IBOutlet var startTimeTextField: NSTextField!
     @IBOutlet var endTimeTextField: NSTextField!
     @IBOutlet var summaryScrollView: NSScrollView!
-    
     @IBOutlet var confirmButton: NSButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupViews()
     }
 
@@ -30,5 +28,4 @@ class ATrackerTabItemViewController: NSViewController {
     @objc
     func confirmButtonPressed() {
     }
-    
 }
