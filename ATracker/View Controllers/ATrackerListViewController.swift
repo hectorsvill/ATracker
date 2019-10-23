@@ -12,7 +12,7 @@ class ATrackerListViewController: NSViewController {
     let aTrackerController = ATrackerController()
     
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    let list = ["list one", "list two", "list 100"]
+    
     
     @IBOutlet var tableView: NSTableView!
     
@@ -22,7 +22,7 @@ class ATrackerListViewController: NSViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        print(aTrackerController.ATrackerList.count)
+        print(aTrackerController.aTrackerList.count)
         
     }
     
@@ -55,7 +55,7 @@ class ATrackerListViewController: NSViewController {
 
 extension ATrackerListViewController: NSTableViewDataSource{
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return list.count
+        return aTrackerController.aTrackerList.count
     }
 }
 
@@ -63,7 +63,7 @@ extension ATrackerListViewController: NSTableViewDataSource{
 extension ATrackerListViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
-        cell.textField?.stringValue = "\(list[row])"
+        cell.textField?.stringValue = "\(aTrackerController.aTrackerList[row].title!)"
         return cell
     }
 }
