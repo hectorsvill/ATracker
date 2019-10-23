@@ -13,7 +13,10 @@ class ATrackerTabItemViewController: NSViewController {
     @IBOutlet var titleTextField: NSTextField!
     @IBOutlet var startTimeTextField: NSTextField!
     @IBOutlet var endTimeTextField: NSTextField!
-    @IBOutlet var summaryScrollView: NSScrollView!
+    
+    
+    @IBOutlet var summaryTextView: NSTextView!
+    
     @IBOutlet var startStopButton: NSButton!
     
     override func viewDidLoad() {
@@ -23,6 +26,7 @@ class ATrackerTabItemViewController: NSViewController {
 
     private func setupViews() {
         titleTextField.delegate = self
+        summaryTextView.delegate = self
 //        summaryScrollView
         startStopButton.action = #selector(startStopButtonPressed)
         // set curremt time
@@ -64,7 +68,7 @@ class ATrackerTabItemViewController: NSViewController {
 }
 
 
-extension ATrackerTabItemViewController: NSTextFieldDelegate {
+extension ATrackerTabItemViewController: NSTextFieldDelegate, NSTextViewDelegate {
     
     func textField(_ textField: NSTextField, textView: NSTextView, shouldSelectCandidateAt index: Int) -> Bool {
         
@@ -76,13 +80,22 @@ extension ATrackerTabItemViewController: NSTextFieldDelegate {
 //        print("textShouldBeginEditing")
 //        return true
 //    }
-//    
+//
 //    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
 //        print("textShouldEndEditing")
 //        return  true
 //    }
-//    
+//
     func controlTextDidChange(_ obj: Notification) {
-        print("didchange")
+        print(titleTextField.stringValue)
+        
+//        print(summaryTextView.string)
     }
+    
+    func textDidChange(_ notification: Notification) {
+        guard let textView = notification.object as? NSTextView else { return }
+        print(textView.string)
+    }
+    
+    
 }
