@@ -1034,7 +1034,7 @@
                             <constraint firstItem="uO3-34-Run" firstAttribute="top" secondItem="mT4-qR-438" secondAttribute="top" constant="8" id="Sf8-1Q-EAI"/>
                             <constraint firstAttribute="trailing" secondItem="dfZ-q0-dUo" secondAttribute="trailing" constant="20" id="YtM-mq-g8S"/>
                             <constraint firstItem="5ot-qJ-mWy" firstAttribute="top" secondItem="teg-79-bmj" secondAttribute="bottom" constant="8" id="aTi-59-FTK"/>
-                            <constraint firstItem="dfZ-q0-dUo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mT4-qR-438" secondAttribute="leading" symbolic="YES" id="gaZ-zM-NM3"/>
+                            <constraint firstItem="dfZ-q0-dUo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mT4-qR-438" secondAttribute="leading" constant="20" symbolic="YES" id="gaZ-zM-NM3"/>
                             <constraint firstAttribute="bottom" secondItem="dfZ-q0-dUo" secondAttribute="bottom" constant="8" id="jiu-c9-ZCN"/>
                             <constraint firstItem="uO3-34-Run" firstAttribute="leading" secondItem="mT4-qR-438" secondAttribute="leading" id="kCT-rV-6Nv"/>
                             <constraint firstItem="teg-79-bmj" firstAttribute="leading" secondItem="mT4-qR-438" secondAttribute="leading" id="qhK-LI-ooa"/>
@@ -1042,8 +1042,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="confirmButton" destination="dfZ-q0-dUo" id="unW-ph-9kG"/>
                         <outlet property="endTimeTextField" destination="5ot-qJ-mWy" id="NOg-qg-3ah"/>
+                        <outlet property="startStopButton" destination="dfZ-q0-dUo" id="pGU-AX-0iR"/>
                         <outlet property="startTimeTextField" destination="QKq-Jq-4tS" id="QMf-tN-Z08"/>
                         <outlet property="summaryScrollView" destination="teg-79-bmj" id="uj7-gp-xhy"/>
                         <outlet property="titleTextField" destination="uO3-34-Run" id="p07-db-s2h"/>
@@ -1257,7 +1257,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="SaveButton" destination="fEe-cb-SgJ" id="ElL-6X-OHN"/>
                         <outlet property="deleteButton" destination="fEe-cb-SgJ" id="PbD-Vk-Zas"/>
                         <outlet property="endTextField" destination="JLZ-vg-oh1" id="0OV-Uw-UPw"/>
                         <outlet property="startTextField" destination="Z1w-Fu-J3l" id="SD2-yi-xgQ"/>

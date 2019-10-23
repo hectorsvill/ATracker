@@ -66,4 +66,8 @@ extension ATrackerListViewController: NSTableViewDelegate {
         cell.textField?.stringValue = "\(aTrackerController.aTrackerList[row].title!)"
         return cell
     }
+    
+    func tableView(_ tableView: NSTableView, didClick tableColumn: NSTableColumn) {
+        print(tableColumn.title)
+    }
 }

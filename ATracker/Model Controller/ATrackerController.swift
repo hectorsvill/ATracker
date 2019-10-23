@@ -14,10 +14,12 @@ class ATrackerController {
     init() {
 //        createATrack(title: "this title", start: Date(timeIntervalSinceNow: -11000), end: Date(timeIntervalSinceNow: 10000))
 //        try! CoreDataStack.shared.mainContext.save()
-        
-        deleteAllATrack()
-        
+//
+//        deleteAllATrack()
+//        deleteATrack(aTrackerList[1])
     }
+    
+    // MARK: Computed Properties
     
     var moc: NSManagedObjectContext{
         return CoreDataStack.shared.mainContext
@@ -34,15 +36,16 @@ class ATrackerController {
         }
     }
     
-    
     func createATrack(title: String, summary: String? = nil, start: Date, end: Date) {
-        let _ = ATrack(title: title, summary: summary, start: start, end: end)
+        _ = ATrack(title: title, summary: summary, start: start, end: end)
     }
     
+    func deleteATrack(_ atrack: ATrack) {
+        guard let firstIndex = aTrackerList.firstIndex(of: atrack) else { return }
+        moc.delete(aTrackerList[firstIndex])
+    }
     
     private func deleteAllATrack() {
         _ = aTrackerList.map { moc.delete($0) }
     }
-    
-    
 }

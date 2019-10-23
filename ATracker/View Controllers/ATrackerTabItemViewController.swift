@@ -14,7 +14,7 @@ class ATrackerTabItemViewController: NSViewController {
     @IBOutlet var startTimeTextField: NSTextField!
     @IBOutlet var endTimeTextField: NSTextField!
     @IBOutlet var summaryScrollView: NSScrollView!
-    @IBOutlet var confirmButton: NSButton!
+    @IBOutlet var startStopButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +22,15 @@ class ATrackerTabItemViewController: NSViewController {
     }
 
     private func setupViews() {
-        confirmButton.action = #selector(confirmButtonPressed)
+        startStopButton.action = #selector(startStopButtonPressed)
+        // set curremt time
+    
     }
     
     @objc
-    func confirmButtonPressed() {
+    func startStopButtonPressed() {
+        startStopButton.title = startStopButton.title == "Start" ? "Stop" : "Start"
+        
+        
     }
 }

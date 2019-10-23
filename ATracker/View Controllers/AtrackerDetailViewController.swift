@@ -24,11 +24,13 @@ class AtrackerDetailViewController: NSViewController {
     }
     
     private func setupViews() {
-        deleteButton.action = #selector(saveTrackButtonPressed)
+        deleteButton.action = #selector(deleteTrackButtonPressed)
     }
     
+    
+    
     @objc
-    func saveTrackButtonPressed() {
+    func deleteTrackButtonPressed() {
         
     }
 }
