@@ -22,15 +22,67 @@ class ATrackerTabItemViewController: NSViewController {
     }
 
     private func setupViews() {
+        titleTextField.delegate = self
+//        summaryScrollView
         startStopButton.action = #selector(startStopButtonPressed)
         // set curremt time
+        
     
     }
     
     @objc
     func startStopButtonPressed() {
-        startStopButton.title = startStopButton.title == "Start" ? "Stop" : "Start"
+        let startStopButtonTitle = startStopButton.title
+        startStopButton.title = startStopButtonTitle == "Start" ? "Stop" : "Start"
         
+        if startStopButtonTitle == "Start" {
+            let currentDate = Date()
+            let dateFormtater = DateFormatter()
+            dateFormtater.dateStyle = .medium
+            dateFormtater.timeStyle = .medium
+            
+            print(titleTextField.stringValue)
+            
+            startTimeTextField.stringValue = "Started Task: " + dateFormtater.string(from: currentDate)
+        } else if startStopButtonTitle == "Stop" {
+            let currentDate = Date()
+            let dateFormtater = DateFormatter()
+            dateFormtater.dateStyle = .medium
+            dateFormtater.timeStyle = .medium
+            
+            
+            
+            endTimeTextField.stringValue = "Ended Task: " + dateFormtater.string(from: currentDate)
+            startStopButton.title = "Save"
+        } else {
+            print("Save")
+            startTimeTextField.stringValue = ""
+            endTimeTextField.stringValue = ""
+            startStopButton.title = "Start"
+        }
+    }
+}
+
+
+extension ATrackerTabItemViewController: NSTextFieldDelegate {
+    
+    func textField(_ textField: NSTextField, textView: NSTextView, shouldSelectCandidateAt index: Int) -> Bool {
         
+        print(titleTextField.stringValue)
+        return true
+    }
+    
+//    func control(_ control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool {
+//        print("textShouldBeginEditing")
+//        return true
+//    }
+//    
+//    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+//        print("textShouldEndEditing")
+//        return  true
+//    }
+//    
+    func controlTextDidChange(_ obj: Notification) {
+        print("didchange")
     }
 }
