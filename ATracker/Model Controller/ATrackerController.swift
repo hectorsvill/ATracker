@@ -12,13 +12,19 @@ import CoreData
 class ATrackerController {
     
     init() {
-//        createATrack(title: "this title", start: Date(timeIntervalSinceNow: -11000), end: Date())
+//        createATrack(title: "this title", start: Date(timeIntervalSinceNow: -11000), end: Date(timeIntervalSinceNow: 10000))
 //        try! CoreDataStack.shared.mainContext.save()
+        
+        deleteAllATrack()
+        
+    }
+    
+    var moc: NSManagedObjectContext{
+        return CoreDataStack.shared.mainContext
     }
     
     var aTrackerList: [ATrack] {
         let fetchRequest: NSFetchRequest<ATrack> = ATrack.fetchRequest()
-        let moc = CoreDataStack.shared.mainContext
         
         do {
             return try moc.fetch(fetchRequest)
@@ -35,13 +41,7 @@ class ATrackerController {
     
     
     private func deleteAllATrack() {
-        let moc = CoreDataStack.shared.mainContext
-        
-        
-        
-        for aTracker in aTrackerList {
-            moc.delete(aTracker)
-        }
+        _ = aTrackerList.map { moc.delete($0) }
     }
     
     
