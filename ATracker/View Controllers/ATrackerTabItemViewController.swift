@@ -11,8 +11,8 @@ import Cocoa
 enum UserDefaultKeys: String {
     case title = "title"
     case summary = "summary"
-    case startDateString = "startDateString"
-    case endDateString = "endDateString"
+    case startDate = "startDateString"
+    case endDate = "endDateString"
     case buttonstate = "buttonState"
 }
 
@@ -46,22 +46,25 @@ class ATrackerTabItemViewController: NSViewController {
         
         let title = titleTextField.stringValue
         let summary = summaryTextView.string
-        let dateString = startTimeTextField.stringValue
-        let endDateString = endTimeTextField.stringValue
         let buttonTitle = startStopButton.title
         
         UserDefaults.standard.set(title, forKey: UserDefaultKeys.title.rawValue)
         UserDefaults.standard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
-        UserDefaults.standard.set(dateString, forKey: UserDefaultKeys.startDateString.rawValue)
-        UserDefaults.standard.set(endDateString, forKey: UserDefaultKeys.endDateString.rawValue)
         UserDefaults.standard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
     }
     
     private func setupViews() {
-        titleTextField.stringValue = UserDefaults.standard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
+        titleTextField.stringValue =  UserDefaults.standard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
         summaryTextView.string = UserDefaults.standard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
-        startTimeTextField.stringValue = UserDefaults.standard.string(forKey: UserDefaultKeys.startDateString.rawValue) ?? ""
-        endTimeTextField.stringValue = UserDefaults.standard.string(forKey: UserDefaultKeys.endDateString.rawValue) ?? ""
+        if let start = UserDefaults.standard.object(forKey: UserDefaultKeys.startDate.rawValue) as? Date {
+            startTimeTextField.stringValue = "Task Started: \(mediumDateFormat.string(from: start))"
+        }
+        
+        if let end = UserDefaults.standard.object(forKey: UserDefaultKeys.endDate.rawValue) as? Date {
+            
+            endTimeTextField.stringValue = "Task Ended:  \(mediumDateFormat.string(from: end))"
+        }
+        
         startStopButton.title = UserDefaults.standard.string(forKey: UserDefaultKeys.buttonstate.rawValue) ?? "Start"
         startStopButton.action = #selector(startStopButtonPressed)
     }
@@ -77,6 +80,7 @@ extension ATrackerTabItemViewController {
     
     private func isStartButton() {
         let currentDate = Date()
+        UserDefaults.standard.set(currentDate, forKey: UserDefaultKeys.startDate.rawValue)
         let formatedDate = mediumDateFormat.string(from: currentDate)
         startTimeTextField.stringValue = "Started Task: " + formatedDate
         endTimeTextField.stringValue = "Task in progress... "
@@ -86,6 +90,7 @@ extension ATrackerTabItemViewController {
     
     private func isStopButton() {
         let currentDate = Date()
+        UserDefaults.standard.set(currentDate, forKey: UserDefaultKeys.endDate.rawValue)
         let formatedDate = mediumDateFormat.string(from: currentDate)
         endTimeTextField.stringValue = "Ended Task: " + formatedDate
         startStopButton.title = "Save"
@@ -93,11 +98,25 @@ extension ATrackerTabItemViewController {
     }
     
     private func isSaveButton() {
+        guard let start = UserDefaults.standard.object(forKey: UserDefaultKeys.startDate.rawValue) as? Date,
+            let end = UserDefaults.standard.object(forKey: UserDefaultKeys.endDate.rawValue) as? Date else { return }
+            
+        let atrackTitle = titleTextField.stringValue
+        let summary = summaryTextView.string
+ 
+        ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
+        
+        resetAllViewsAndDateKeys()
+    }
+
+    private func resetAllViewsAndDateKeys() {
         titleTextField.stringValue = ""
         summaryTextView.string = ""
         startTimeTextField.stringValue = ""
         endTimeTextField.stringValue = ""
         startStopButton.title = "Start"
+        UserDefaults.standard.set(nil, forKey: UserDefaultKeys.startDate.rawValue)
+        UserDefaults.standard.set(nil, forKey: UserDefaultKeys.endDate.rawValue)
     }
     
     @objc
