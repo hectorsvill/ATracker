@@ -19,6 +19,14 @@ class ATrackerTabItemViewController: NSViewController {
     
     @IBOutlet var startStopButton: NSButton!
     
+    var mediumDateFormat: DateFormatter {
+        let dateFormtater = DateFormatter()
+        dateFormtater.dateStyle = .medium
+        dateFormtater.timeStyle = .medium
+        return dateFormtater
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()

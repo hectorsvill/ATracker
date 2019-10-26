@@ -9,12 +9,14 @@
 import Cocoa
 
 class ATrackerListViewController: NSViewController {
-    let aTrackerController = ATrackerController()
-    
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    
     
     @IBOutlet var tableView: NSTableView!
+    let aTrackerController = ATrackerController()
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    var currentTitle = ""
+    var currentSummary = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,12 @@ class ATrackerListViewController: NSViewController {
         print(aTrackerController.aTrackerList.count)
         
     }
+    
+}
+ 
+// MARK: NSStatusItem
+
+extension ATrackerListViewController {
     
     private func setupStatusItem() {
         statusItem.button?.title = "𝓪Tracker"
