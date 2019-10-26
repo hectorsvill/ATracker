@@ -36,7 +36,7 @@ class ATrackerController {
         }
     }
     
-    func createATrack(title: String, summary: String? = nil, start: Date, end: Date) {
+    func createATrack(title: String, summary: String? = nil, start: Date, end: Date? = nil) {
         _ = ATrack(title: title, summary: summary, start: start, end: end)
     }
     
