@@ -8,6 +8,13 @@
 
 import Cocoa
 
+enum UserDefaultKeys: String {
+    case title = "title"
+    case summary = "summary"
+    case startDateString = "startDateString"
+    case buttonstate = "buttonState"
+}
+
 class ATrackerTabItemViewController: NSViewController {
     
     var aTrackerController: ATrackerController?
@@ -17,8 +24,6 @@ class ATrackerTabItemViewController: NSViewController {
     @IBOutlet var startTimeTextField: NSTextField!
     @IBOutlet var endTimeTextField: NSTextField!
     @IBOutlet var startStopButton: NSButton!
-    
-    
     
     var mediumDateFormat: DateFormatter {
         let dateFormtater = DateFormatter()
@@ -38,16 +43,23 @@ class ATrackerTabItemViewController: NSViewController {
         
         let title = titleTextField.stringValue
         let summary = summaryTextView.string
+        let dateString = startTimeTextField.stringValue
+        let buttonTitle = startStopButton.title
         
-        UserDefaults.standard.set(title, forKey: "title")
-        UserDefaults.standard.set(summary, forKey: "summary")
+        UserDefaults.standard.set(title, forKey: UserDefaultKeys.title.rawValue)
+        UserDefaults.standard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
+        UserDefaults.standard.set(dateString, forKey: UserDefaultKeys.startDateString.rawValue)
+        UserDefaults.standard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
+        
     }
     
     
 
     private func setupViews() {
-        titleTextField.stringValue = UserDefaults.standard.string(forKey: "title") ?? ""
-        summaryTextView.string = UserDefaults.standard.string(forKey: "summary") ?? ""
+        titleTextField.stringValue = UserDefaults.standard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
+        summaryTextView.string = UserDefaults.standard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
+        startTimeTextField.stringValue = UserDefaults.standard.string(forKey: UserDefaultKeys.startDateString.rawValue) ?? ""
+        startStopButton.title = UserDefaults.standard.string(forKey: UserDefaultKeys.buttonstate.rawValue) ?? "Start"
         
         titleTextField.delegate = self
         summaryTextView.delegate = self
