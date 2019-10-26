@@ -13,11 +13,7 @@ class ATrackerListViewController: NSViewController {
     @IBOutlet var tableView: NSTableView!
     let aTrackerController = ATrackerController()
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-    var currentTitle = ""
-    var currentSummary = ""
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupStatusItem()
@@ -46,7 +42,8 @@ extension ATrackerListViewController {
         guard let vc = storyboad.instantiateController(withIdentifier: "ATrackerItemBar") as? ATrackerTabItemViewController else {
             fatalError("Error getting status button item")
         }
-
+        vc.aTrackerController = aTrackerController
+        
         let popoverView = NSPopover()
         popoverView.contentViewController = vc
         popoverView.behavior = .transient
