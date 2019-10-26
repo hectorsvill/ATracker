@@ -8,15 +8,13 @@
 
 import Cocoa
 
-enum UserDefaultKeys: String {
+private enum UserDefaultKeys: String {
     case title = "title"
     case summary = "summary"
     case startDate = "startDateString"
     case endDate = "endDateString"
     case buttonstate = "buttonState"
 }
-
-
 
 class ATrackerTabItemViewController: NSViewController {
     
@@ -34,7 +32,6 @@ class ATrackerTabItemViewController: NSViewController {
         dateFormtater.timeStyle = .medium
         return dateFormtater
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,7 +21,7 @@ class ATrackerController {
     
     // MARK: Computed Properties
     
-    var moc: NSManagedObjectContext{
+    private var moc: NSManagedObjectContext{
         return CoreDataStack.shared.mainContext
     }
     
