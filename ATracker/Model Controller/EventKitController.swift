@@ -14,34 +14,59 @@ class EventKitController {
     let calendarTitle: String
     let eventStore: EKEventStore
     
-    init(calendarTitle: String = "ATaskTracker", eventStore: EKEventStore = EKEventStore()) {
+
+    
+    init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
         
     }
     
-    func permission() {
-        switch EKEventStore.authorizationStatus(for: .event) {
-        case .authorized:
-            print("Auth")
-        case .denied:
-            eventStore.requestAccess(to: .event) { _, _ in}
-            print("access denied")
-        case .notDetermined:
-            eventStore.requestAccess(to: .event) { _, _ in}
-            print("access denied")
-        default:
-            print("Access denied")
+    
+    func checkIfTaskTrackAppCalendarExist(){
+        if fetchCalendar(with: calendarTitle) == nil {
+            createNewCalendar()
         }
     }
     
-    func fetchCalendar(with title: String) -> EKCalendar {
-        eventStore.calendars(for: .event).filter{ $0.title == calendarTitle }.first!
+    func permission() {
+        switch EKEventStore.authorizationStatus(for: .event) {
+        case .denied:
+            eventStore.requestAccess(to: .event) { _, _ in}
+        case .notDetermined:
+            eventStore.requestAccess(to: .event) { _, _ in}
+        default:
+            NSLog("EventKitController.permission() went to default")
+            eventStore.requestAccess(to: .event) { _, _ in}
+        }
+    }
+    
+    
+    
+    func createNewCalendar() {
+        let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
+        newCalendar.title = calendarTitle
+        newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == EKSourceType.local.rawValue}.first!
+        newCalendar.color = .black
+        
+        do {
+            try eventStore.saveCalendar(newCalendar, commit: true)
+        } catch {
+            NSLog("Error creating calendar: \(error)")
+        }
+    }
+    
+    
+    
+    func fetchCalendar(with title: String) -> EKCalendar? {
+        eventStore.calendars(for: .event).filter{ $0.title == calendarTitle }.first
     }
     
     func insertEvent(with atrack: ATrack) {
-        let calendar = fetchCalendar(with: calendarTitle)
-        print(calendar)
+        checkIfTaskTrackAppCalendarExist()
+        
+        let calendar = fetchCalendar(with: calendarTitle)!
+        //print(calendar)
 
         let event = EKEvent(eventStore: eventStore)
         event.calendar = calendar
@@ -56,8 +81,5 @@ class EventKitController {
         } catch {
             NSLog("Error with event: \(error)")
         }
-                
     }
-    
-    
 }
