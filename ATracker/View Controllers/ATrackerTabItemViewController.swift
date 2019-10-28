@@ -17,7 +17,7 @@ private enum UserDefaultKeys: String {
 }
 
 class ATrackerTabItemViewController: NSViewController {
-    
+    let eventKitController = EventKitController()
     var aTrackerController: ATrackerController?
 
     @IBOutlet var titleTextField: NSTextField!
@@ -101,7 +101,10 @@ extension ATrackerTabItemViewController {
         let atrackTitle = titleTextField.stringValue
         let summary = summaryTextView.string
  
+        let atrack = ATrack(title: atrackTitle, summary: summary, start: start, end: end)
         ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
+        
+        eventKitController.insertEvent(with: atrack)
         
         resetAllViewsAndDateKeys()
     }
