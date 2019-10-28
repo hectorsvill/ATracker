@@ -11,10 +11,12 @@ import EventKit
 
 class EventKitController {
     
-    let calendarTitle: String
+    var calendarTitle: String
     let eventStore: EKEventStore
     
-
+    var fetchCalendar: EKCalendar? {
+        eventStore.calendars(for: .event).filter{ $0.title == calendarTitle }.first
+    }
     
     init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
@@ -24,7 +26,7 @@ class EventKitController {
     
     
     func checkIfTaskTrackAppCalendarExist(){
-        if fetchCalendar(with: calendarTitle) == nil {
+        if fetchCalendar == nil {
             createNewCalendar()
         }
     }
@@ -41,8 +43,6 @@ class EventKitController {
         }
     }
     
-    
-    
     func createNewCalendar() {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = calendarTitle
@@ -56,16 +56,10 @@ class EventKitController {
         }
     }
     
-    
-    
-    func fetchCalendar(with title: String) -> EKCalendar? {
-        eventStore.calendars(for: .event).filter{ $0.title == calendarTitle }.first
-    }
-    
     func insertEvent(with atrack: ATrack) {
         checkIfTaskTrackAppCalendarExist()
         
-        let calendar = fetchCalendar(with: calendarTitle)!
+        let calendar = fetchCalendar!
         //print(calendar)
 
         let event = EKEvent(eventStore: eventStore)
