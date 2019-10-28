@@ -14,22 +14,19 @@ class EventKitController {
     let calendarTitle: String
     let eventStore: EKEventStore
     
-    init(calendarTitle: String = "ATaslTracker", eventStore: EKEventStore = EKEventStore()) {
+    init(calendarTitle: String = "ATaskTracker", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
         
     }
     
     func permission() {
-        print("jere")
         switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
             print("Auth")
         case .denied:
             eventStore.requestAccess(to: .event) { _, _ in}
             print("access denied")
-//            let openSettingsUrl = openURL(string: NSAttributedString)
-//            NSApplication.shared.openURL(openSettingsUrl)
         case .notDetermined:
             eventStore.requestAccess(to: .event) { _, _ in}
             print("access denied")
@@ -42,18 +39,24 @@ class EventKitController {
      
         let calendars = eventStore.calendars(for: .event)
         
-        print(calendars)
+//        print(calendars)
         
         for calendar in calendars {
             print(calendar.title)
             
             if calendar.title == calendarTitle {
+                print("here")
                 let startDate = atrack.start
                 let endDate = atrack.end
                 
                 let event = EKEvent(eventStore: eventStore)
                 event.calendar = calendar
                 event.title = atrack.title
+                event.notes = atrack.summary
+                
+                event.url = nil
+
+                
                 event.startDate = startDate
                 event.endDate = endDate
                 
@@ -62,6 +65,8 @@ class EventKitController {
                 } catch {
                     NSLog("Error with event: \(error)")
                 }
+                
+                return
             }
         }
     }
