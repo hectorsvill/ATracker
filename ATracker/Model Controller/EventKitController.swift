@@ -21,14 +21,11 @@ class EventKitController {
     init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
-        
     }
     
     
-    func checkIfTaskTrackAppCalendarExist(){
-        if fetchCalendar == nil {
-            createNewCalendar()
-        }
+    func checkIfTaskTrackAppCalendarExist() -> Bool{
+        fetchCalendar == nil
     }
     
     func permission() {
@@ -43,10 +40,10 @@ class EventKitController {
         }
     }
     
-    func createNewCalendar() {
+    func createNewCalendar(using sourceType: EKSourceType = EKSourceType.calDAV) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = calendarTitle
-        newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == EKSourceType.local.rawValue}.first!
+        newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == sourceType.rawValue}.first!
         newCalendar.color = .black
         
         do {
@@ -57,10 +54,12 @@ class EventKitController {
     }
     
     func insertEvent(with atrack: ATrack) {
-        checkIfTaskTrackAppCalendarExist()
+        if !checkIfTaskTrackAppCalendarExist() {
+            createNewCalendar()
+        }
         
         let calendar = fetchCalendar!
-        //print(calendar)
+
 
         let event = EKEvent(eventStore: eventStore)
         event.calendar = calendar
