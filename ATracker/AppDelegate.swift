@@ -12,12 +12,16 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
         
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        print("applicationDidFinishLaunching")
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+        print("applicationWillTerminate")
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        
+        print("applicationShouldTerminateAfterLastWindowClosed")
         return true
     }
 
