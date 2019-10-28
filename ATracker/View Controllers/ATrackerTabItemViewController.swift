@@ -36,6 +36,7 @@ class ATrackerTabItemViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        eventKitController.permission()
     }
     
     override func viewWillDisappear() {

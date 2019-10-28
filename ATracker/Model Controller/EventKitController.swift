@@ -6,7 +6,7 @@
 //  Copyright © 2019 Hector. All rights reserved.
 //
 
-import Foundation
+import Cocoa
 import EventKit
 
 class EventKitController {
@@ -17,18 +17,22 @@ class EventKitController {
     init(calendarTitle: String = "ATaslTracker", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
-        permission()
+        
     }
     
     func permission() {
+        print("jere")
         switch EKEventStore.authorizationStatus(for: .event) {
         case .authorized:
             print("Auth")
         case .denied:
             eventStore.requestAccess(to: .event) { _, _ in}
             print("access denied")
+//            let openSettingsUrl = openURL(string: NSAttributedString)
+//            NSApplication.shared.openURL(openSettingsUrl)
         case .notDetermined:
             eventStore.requestAccess(to: .event) { _, _ in}
+            print("access denied")
         default:
             print("Access denied")
         }
@@ -38,7 +42,7 @@ class EventKitController {
      
         let calendars = eventStore.calendars(for: .event)
         
-        
+        print(calendars)
         
         for calendar in calendars {
             print(calendar.title)
