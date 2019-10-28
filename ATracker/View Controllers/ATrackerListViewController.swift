@@ -31,7 +31,8 @@ class ATrackerListViewController: NSViewController {
 extension ATrackerListViewController {
     
     private func setupStatusItem() {
-        statusItem.button?.title = "𝓪Tracker"
+        
+        statusItem.button?.title = "⏱"
         statusItem.button?.target = self
         statusItem.button?.action = #selector(trackIt)
     }
