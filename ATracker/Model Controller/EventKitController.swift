@@ -19,18 +19,16 @@ class EventKitController {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
         
-        print(eventCalendars[calendarTitle]?.title ?? "")
+        print(eventCalendars.keys)
     }
     
-    // returns event calendar array
+    // returns event calendar dict
     var eventCalendars: [String: EKCalendar] {
-        var dict: [String: EKCalendar] = [:]
+        var eventCalendars: [String: EKCalendar] = [:]
         
-        _ = eventStore.calendars(for: .event).map {
-            dict[$0.title] = $0
-        }
+        _ = eventStore.calendars(for: .event).map { eventCalendars[$0.title] = $0 }
         
-        return dict
+        return eventCalendars
     }
     
     // returns true if calendar exist
@@ -38,7 +36,7 @@ class EventKitController {
         if let _ = eventCalendars[calendarTitle] {
             return true
         }
-        return false 
+        return false
     }
 
     // check permission and request access to calendar from user
@@ -69,7 +67,7 @@ class EventKitController {
     }
     
     func insertEvent(with atrack: ATrack) {
-        if calendarExist {
+        if !calendarExist {
             createNewCalendar()
         }
         
