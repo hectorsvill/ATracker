@@ -14,20 +14,34 @@ class EventKitController {
     var calendarTitle: String
     let eventStore: EKEventStore
     
-    var fetchCalendar: EKCalendar? {
-        eventStore.calendars(for: .event).filter{ $0.title == calendarTitle }.first
-    }
     
     init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
+        
+        print(eventCalendars[calendarTitle]?.title ?? "")
     }
     
-    
-    func checkIfTaskTrackAppCalendarExist() -> Bool{
-        fetchCalendar == nil
+    // returns event calendar array
+    var eventCalendars: [String: EKCalendar] {
+        var dict: [String: EKCalendar] = [:]
+        
+        _ = eventStore.calendars(for: .event).map {
+            dict[$0.title] = $0
+        }
+        
+        return dict
     }
     
+    // returns true if calendar exist
+    var calendarExist: Bool {
+        if let _ = eventCalendars[calendarTitle] {
+            return true
+        }
+        return false 
+    }
+
+    // check permission and request access to calendar from user
     func permission() {
         switch EKEventStore.authorizationStatus(for: .event) {
         case .denied:
@@ -40,6 +54,7 @@ class EventKitController {
         }
     }
     
+    // create calendar inside icloud default
     func createNewCalendar(using sourceType: EKSourceType = EKSourceType.calDAV) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = calendarTitle
@@ -54,11 +69,11 @@ class EventKitController {
     }
     
     func insertEvent(with atrack: ATrack) {
-        if !checkIfTaskTrackAppCalendarExist() {
+        if calendarExist {
             createNewCalendar()
         }
         
-        let calendar = fetchCalendar!
+        let calendar = eventCalendars[calendarTitle]!
 
 
         let event = EKEvent(eventStore: eventStore)
