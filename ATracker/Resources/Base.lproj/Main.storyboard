@@ -31,11 +31,11 @@
             <objects>
                 <viewController id="rBt-Rp-q83" customClass="CreateCalendarViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" misplaced="YES" id="DSk-SE-uib">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="236"/>
+                        <rect key="frame" x="0.0" y="0.0" width="490" height="236"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Ol-u2-Afk">
-                                <rect key="frame" x="20" y="73" width="410" height="26"/>
+                                <rect key="frame" x="20" y="73" width="450" height="26"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="New Calendar " drawsBackground="YES" id="tYA-cV-Dff">
                                     <font key="font" metaFont="system" size="18"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -43,7 +43,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-rq-RyN">
-                                <rect key="frame" x="297" y="37" width="139" height="32"/>
+                                <rect key="frame" x="337" y="37" width="139" height="32"/>
                                 <buttonCell key="cell" type="push" title="Create Calendar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lnw-c9-VWc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -53,41 +53,41 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-oI-x1E">
-                                <rect key="frame" x="18" y="119" width="414" height="16"/>
+                                <rect key="frame" x="18" y="119" width="454" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="⏱ Create a new calendar!" usesSingleLineMode="YES" id="rd4-4u-VNW">
-                                    <font key="font" size="13" name=".AppleColorEmojiUI"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-Vt-M3R">
-                                <rect key="frame" x="18" y="42" width="123" height="24"/>
+                                <rect key="frame" x="18" y="42" width="163" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="o6n-C6-dUK">
                                     <font key="font" metaFont="system"/>
                                     <segments>
-                                        <segment label="local"/>
+                                        <segment label="On My Mac"/>
                                         <segment label="iCloud" selected="YES" tag="1"/>
                                     </segments>
                                 </segmentedCell>
                             </segmentedControl>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDk-rY-tYk">
-                                <rect key="frame" x="18" y="151" width="414" height="16"/>
+                                <rect key="frame" x="18" y="151" width="454" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="⏱ View your events on iCalendar! " usesSingleLineMode="YES" id="AGP-ax-ker">
-                                    <font key="font" size="13" name=".AppleColorEmojiUI"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VbF-cu-Pnw">
-                                <rect key="frame" x="18" y="183" width="414" height="16"/>
+                                <rect key="frame" x="18" y="183" width="454" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="⏱ Start tracking!" usesSingleLineMode="YES" id="eJt-rp-CK1">
-                                    <font key="font" size="13" name=".AppleColorEmojiUI"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKJ-9b-T7l">
-                                <rect key="frame" x="404" y="1" width="32" height="31"/>
+                                <rect key="frame" x="404" y="1" width="72" height="31"/>
                                 <buttonCell key="cell" type="round" bezelStyle="circular" image="NSInfo" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iQm-xs-f7v">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
