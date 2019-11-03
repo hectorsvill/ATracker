@@ -13,12 +13,10 @@
 		C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */; };
 		C436F0342366C42600A8813B /* EventKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436F0332366C42600A8813B /* EventKitController.swift */; };
 		C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451F92358131B007F0613 /* AppDelegate.swift */; };
-		C45451FC2358131B007F0613 /* ATrackerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451FB2358131B007F0613 /* ATrackerListViewController.swift */; };
 		C45451FE2358131E007F0613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45451FD2358131E007F0613 /* Assets.xcassets */; };
 		C45452012358131E007F0613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45451FF2358131E007F0613 /* Main.storyboard */; };
 		C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */; };
 		C4748B062366318D001416A0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45452022358131E007F0613 /* Info.plist */; };
-		C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */; };
 		C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B66235D58710081D765 /* CoreDataStack.swift */; };
 		C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B68235D5C170081D765 /* ATrackerController.swift */; };
 /* End PBXBuildFile section */
@@ -31,13 +29,11 @@
 		C436F0332366C42600A8813B /* EventKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitController.swift; sourceTree = "<group>"; };
 		C45451F62358131B007F0613 /* ATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45451F92358131B007F0613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C45451FB2358131B007F0613 /* ATrackerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerListViewController.swift; sourceTree = "<group>"; };
 		C45451FD2358131E007F0613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C45452002358131E007F0613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C45452022358131E007F0613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C45452032358131E007F0613 /* ATracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ATracker.entitlements; sourceTree = "<group>"; };
 		C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerTabItemViewController.swift; sourceTree = "<group>"; };
-		C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtrackerDetailViewController.swift; sourceTree = "<group>"; };
 		C49D3B66235D58710081D765 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C49D3B68235D5C170081D765 /* ATrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +90,6 @@
 		C49D3B61235D56230081D765 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C45451FB2358131B007F0613 /* ATrackerListViewController.swift */,
-				C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */,
 				C45451FF2358131E007F0613 /* Main.storyboard */,
 				C45451FD2358131E007F0613 /* Assets.xcassets */,
 				C45452022358131E007F0613 /* Info.plist */,
@@ -194,7 +188,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */,
 				C403F875236F3DF7002BE0E2 /* WindowController.swift in Sources */,
 				C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */,
 				C436F0342366C42600A8813B /* EventKitController.swift in Sources */,
@@ -202,7 +195,6 @@
 				C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */,
 				C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */,
 				C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */,
-				C45451FC2358131B007F0613 /* ATrackerListViewController.swift in Sources */,
 				C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */,
 				C403F877236F4A8F002BE0E2 /* CreateCalendarViewController.swift in Sources */,
 			);
