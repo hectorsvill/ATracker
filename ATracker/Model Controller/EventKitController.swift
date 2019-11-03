@@ -18,30 +18,23 @@ class EventKitController {
     init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
-        
-//        print(eventCalendars.keys)
-        
-
-//        let x = (0...10).map{ $0 % 2 == 0 ? $0 : 0}.reduce(0,+)
-        print((1...4).reduce(1, +))
-
     }
     
     // returns event calendar dict
-    var eventCalendars: [String: EKCalendar] {
-        var eventCalendars: [String: EKCalendar] = [:]
-        
-        _ = eventStore.calendars(for: .event).map { eventCalendars[$0.title] = $0 }
-        
-        return eventCalendars
+    var eventCalendars: [EKCalendar] {
+        eventStore.calendars(for: .event)
     }
     
     // returns true if calendar exist
-    var calendarExist: Bool {
-        if let _ = eventCalendars[calendarTitle] {
-            return true
+    var calendarExist: EKCalendar? {
+        
+        for calendar in eventCalendars {
+            if calendar.title == self.calendarTitle {
+                return calendar
+            }
         }
-        return false
+
+        return nil
     }
 
     // check permission and request access to calendar from user
@@ -72,11 +65,11 @@ class EventKitController {
     }
     
     func insertEvent(with atrack: ATrack) {
-        if !calendarExist {
+        if calendarExist != nil{
             createNewCalendar()
         }
         
-        let calendar = eventCalendars[calendarTitle]!
+        let calendar = calendarExist!
 
 
         let event = EKEvent(eventStore: eventStore)

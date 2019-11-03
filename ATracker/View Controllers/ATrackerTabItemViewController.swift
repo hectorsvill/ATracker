@@ -156,11 +156,11 @@ extension ATrackerTabItemViewController {
 extension ATrackerTabItemViewController: NSComboBoxDataSource, NSComboBoxDelegate {
     
     func numberOfItems(in comboBox: NSComboBox) -> Int {
-        return 4
+        return eventKitController.eventCalendars.count
     }
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        return "\(index)"
+        return "\(eventKitController.eventCalendars[index].title)"
     }
     
 }
