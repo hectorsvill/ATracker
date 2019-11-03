@@ -10,12 +10,14 @@ import Cocoa
 import EventKit
 
 class EventKitController {
-    let eventStore: EKEventStore
+    private let eventStore: EKEventStore
     
+    /// returns event calendars array
     var eventCalendars: [EKCalendar] {
         eventStore.calendars(for: .event)
     }
     
+    /// returns reminder calendars array
     var reminderCalendars: [EKCalendar] {
         eventStore.calendars(for: .reminder)
     }
@@ -23,8 +25,19 @@ class EventKitController {
     init(eventStore: EKEventStore = EKEventStore()) {
         self.eventStore = eventStore
     }
+    
+    /// returns true if calendar with title exitst
+    func calendarExits(with title: String) -> Bool {
+        for calendar in eventCalendars {
+            if calendar.title == title {
+                return true
+            }
+        }
+        
+        return false
+    }
 
-    // check permission and request access to calendar from user
+    /// check permission and request access to calendar from user
     func permission() {
         switch EKEventStore.authorizationStatus(for: .event) {
         case .denied:
@@ -37,7 +50,7 @@ class EventKitController {
         }
     }
     
-    // create calendar inside icloud default
+    /// create new event calendar inside icloud default, if exist do nothing
     func createNewCalendar(with title: String, using sourceType: EKSourceType = EKSourceType.calDAV) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = title
@@ -51,6 +64,7 @@ class EventKitController {
         }
     }
     
+    /// insert event to  calendar
     func insertEvent(with calendar: EKCalendar, atrack: ATrack) {
         let event = EKEvent(eventStore: eventStore)
         event.calendar = calendar

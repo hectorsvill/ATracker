@@ -30,12 +30,12 @@
         <scene sceneID="2xf-sC-DPH">
             <objects>
                 <viewController id="rBt-Rp-q83" customClass="CreateCalendarViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="DSk-SE-uib">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                    <view key="view" misplaced="YES" id="DSk-SE-uib">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="236"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Ol-u2-Afk">
-                                <rect key="frame" x="20" y="137" width="410" height="26"/>
+                                <rect key="frame" x="20" y="73" width="410" height="26"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="New Calendar " drawsBackground="YES" id="tYA-cV-Dff">
                                     <font key="font" metaFont="system" size="18"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -43,7 +43,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-rq-RyN">
-                                <rect key="frame" x="297" y="101" width="139" height="32"/>
+                                <rect key="frame" x="297" y="37" width="139" height="32"/>
                                 <buttonCell key="cell" type="push" title="Create Calendar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lnw-c9-VWc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -52,26 +52,16 @@
                                     <action selector="createCalendarButtonPressed:" target="rBt-Rp-q83" id="Seh-h2-dYs"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKJ-9b-T7l">
-                                <rect key="frame" x="404" y="13" width="32" height="31"/>
-                                <buttonCell key="cell" type="round" bezelStyle="circular" image="NSInfo" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iQm-xs-f7v">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="2rp-CU-OTN" kind="popover" popoverAnchorView="KKJ-9b-T7l" popoverBehavior="t" preferredEdge="maxY" id="3hU-uF-uN0"/>
-                                </connections>
-                            </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-oI-x1E">
-                                <rect key="frame" x="18" y="183" width="414" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="⏱Create a new calendar to start trackink!" usesSingleLineMode="YES" id="rd4-4u-VNW">
+                                <rect key="frame" x="18" y="119" width="414" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="⏱ Create a new calendar!" usesSingleLineMode="YES" id="rd4-4u-VNW">
                                     <font key="font" size="13" name=".AppleColorEmojiUI"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-Vt-M3R">
-                                <rect key="frame" x="18" y="106" width="123" height="24"/>
+                                <rect key="frame" x="18" y="42" width="123" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="o6n-C6-dUK">
                                     <font key="font" metaFont="system"/>
                                     <segments>
@@ -80,21 +70,55 @@
                                     </segments>
                                 </segmentedCell>
                             </segmentedControl>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mDk-rY-tYk">
+                                <rect key="frame" x="18" y="151" width="414" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="⏱ View your events on iCalendar! " usesSingleLineMode="YES" id="AGP-ax-ker">
+                                    <font key="font" size="13" name=".AppleColorEmojiUI"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VbF-cu-Pnw">
+                                <rect key="frame" x="18" y="183" width="414" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="⏱ Start tracking!" usesSingleLineMode="YES" id="eJt-rp-CK1">
+                                    <font key="font" size="13" name=".AppleColorEmojiUI"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKJ-9b-T7l">
+                                <rect key="frame" x="404" y="1" width="32" height="31"/>
+                                <buttonCell key="cell" type="round" bezelStyle="circular" image="NSInfo" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iQm-xs-f7v">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="2rp-CU-OTN" kind="popover" popoverAnchorView="KKJ-9b-T7l" popoverBehavior="t" preferredEdge="maxY" id="3hU-uF-uN0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OCj-oI-x1E" secondAttribute="trailing" constant="20" id="0sg-9a-JnH"/>
-                            <constraint firstItem="2ye-Vt-M3R" firstAttribute="top" secondItem="9Ol-u2-Afk" secondAttribute="bottom" constant="8" id="0vs-T0-wfM"/>
-                            <constraint firstItem="MIf-rq-RyN" firstAttribute="top" secondItem="9Ol-u2-Afk" secondAttribute="bottom" constant="8" id="8hf-QQ-Nhg"/>
-                            <constraint firstItem="MIf-rq-RyN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" symbolic="YES" id="A6a-pb-9UL"/>
-                            <constraint firstAttribute="bottom" secondItem="KKJ-9b-T7l" secondAttribute="bottom" constant="20" id="Kad-y0-x39"/>
-                            <constraint firstAttribute="trailing" secondItem="KKJ-9b-T7l" secondAttribute="trailing" constant="20" id="OcT-Ic-s8w"/>
-                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="leading" secondItem="OCj-oI-x1E" secondAttribute="leading" id="Rrh-Nv-IxJ"/>
-                            <constraint firstItem="OCj-oI-x1E" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="Zxb-7w-OQB"/>
-                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="centerY" secondItem="DSk-SE-uib" secondAttribute="centerY" id="epM-Cf-kSu"/>
-                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="centerX" secondItem="DSk-SE-uib" secondAttribute="centerX" id="ogi-MY-Sfw"/>
-                            <constraint firstAttribute="trailing" secondItem="MIf-rq-RyN" secondAttribute="trailing" constant="20" id="q5N-pK-S9v"/>
-                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="top" secondItem="OCj-oI-x1E" secondAttribute="bottom" constant="20" id="rPN-5n-MlY"/>
-                            <constraint firstItem="2ye-Vt-M3R" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="tXA-Vi-yFa"/>
+                            <constraint firstItem="OCj-oI-x1E" firstAttribute="top" secondItem="mDk-rY-tYk" secondAttribute="bottom" constant="16" id="69K-X6-8k5"/>
+                            <constraint firstItem="VbF-cu-Pnw" firstAttribute="top" secondItem="DSk-SE-uib" secondAttribute="top" constant="37" id="8yX-p2-2cQ"/>
+                            <constraint firstAttribute="bottom" secondItem="KKJ-9b-T7l" secondAttribute="bottom" constant="8" id="I70-fX-jcs"/>
+                            <constraint firstAttribute="trailing" secondItem="MIf-rq-RyN" secondAttribute="trailing" constant="20" id="M6F-7x-1sk"/>
+                            <constraint firstAttribute="trailing" secondItem="KKJ-9b-T7l" secondAttribute="trailing" constant="20" id="Q5Q-gN-Blc"/>
+                            <constraint firstItem="mDk-rY-tYk" firstAttribute="top" secondItem="VbF-cu-Pnw" secondAttribute="bottom" constant="16" id="XFr-rI-dRL"/>
+                            <constraint firstItem="MIf-rq-RyN" firstAttribute="leading" secondItem="2ye-Vt-M3R" secondAttribute="trailing" constant="164" id="Xhl-7V-q3c"/>
+                            <constraint firstItem="mDk-rY-tYk" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="ZSe-JN-4SN"/>
+                            <constraint firstItem="VbF-cu-Pnw" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="cJT-Ih-07v"/>
+                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="top" secondItem="OCj-oI-x1E" secondAttribute="bottom" constant="20" id="eRu-du-I8Z"/>
+                            <constraint firstItem="KKJ-9b-T7l" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="410" id="fGc-Mv-nAT"/>
+                            <constraint firstItem="MIf-rq-RyN" firstAttribute="top" secondItem="9Ol-u2-Afk" secondAttribute="bottom" constant="8" id="fZR-5W-fKq"/>
+                            <constraint firstItem="2ye-Vt-M3R" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="gZa-45-0LT"/>
+                            <constraint firstAttribute="trailing" secondItem="OCj-oI-x1E" secondAttribute="trailing" constant="20" id="hNu-k6-ROc"/>
+                            <constraint firstItem="KKJ-9b-T7l" firstAttribute="top" secondItem="MIf-rq-RyN" secondAttribute="bottom" constant="16" id="jAe-ZS-Jvf"/>
+                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="kzX-qA-Sxt"/>
+                            <constraint firstAttribute="trailing" secondItem="mDk-rY-tYk" secondAttribute="trailing" constant="20" id="pGt-E7-xvg"/>
+                            <constraint firstItem="2ye-Vt-M3R" firstAttribute="top" secondItem="9Ol-u2-Afk" secondAttribute="bottom" constant="8" id="rnM-48-LGv"/>
+                            <constraint firstAttribute="trailing" secondItem="VbF-cu-Pnw" secondAttribute="trailing" constant="20" id="sQg-sn-JqN"/>
+                            <constraint firstAttribute="trailing" secondItem="9Ol-u2-Afk" secondAttribute="trailing" constant="20" id="uZB-yN-xNp"/>
+                            <constraint firstItem="OCj-oI-x1E" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="yRC-cr-R9e"/>
                         </constraints>
                     </view>
                     <connections>

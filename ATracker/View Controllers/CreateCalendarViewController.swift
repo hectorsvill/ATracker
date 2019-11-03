@@ -21,9 +21,13 @@ class CreateCalendarViewController: NSViewController {
         guard !calendarTitleTextField.stringValue.isEmpty else { return }
         
         let selectedSegement = segmentControl.selectedSegment
+        
+        
         selectedSegement == 1 ?
             EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue) :
             EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue, using: .local)
+        
+        
         calendarTitleTextField.stringValue = ""
     }
 }
