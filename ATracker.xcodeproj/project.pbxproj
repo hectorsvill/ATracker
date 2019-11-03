@@ -84,8 +84,6 @@
 			children = (
 				C403F874236F3DF7002BE0E2 /* WindowController.swift */,
 				C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */,
-				C45451FB2358131B007F0613 /* ATrackerListViewController.swift */,
-				C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -93,6 +91,8 @@
 		C49D3B61235D56230081D765 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C45451FB2358131B007F0613 /* ATrackerListViewController.swift */,
+				C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */,
 				C45451FF2358131E007F0613 /* Main.storyboard */,
 				C45451FD2358131E007F0613 /* Assets.xcassets */,
 				C45452022358131E007F0613 /* Info.plist */,
