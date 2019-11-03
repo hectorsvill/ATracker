@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C403F875236F3DF7002BE0E2 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403F874236F3DF7002BE0E2 /* WindowController.swift */; };
 		C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */; };
 		C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */; };
 		C436F0342366C42600A8813B /* EventKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436F0332366C42600A8813B /* EventKitController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C403F874236F3DF7002BE0E2 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		C41CCC4C235D5E9D007280BB /* ATracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATracker.xcdatamodel; sourceTree = "<group>"; };
 		C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ATrack+Convenience.swift"; sourceTree = "<group>"; };
 		C436F0332366C42600A8813B /* EventKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitController.swift; sourceTree = "<group>"; };
@@ -80,9 +82,10 @@
 		C49D3B5E235C25580081D765 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C403F874236F3DF7002BE0E2 /* WindowController.swift */,
+				C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */,
 				C45451FB2358131B007F0613 /* ATrackerListViewController.swift */,
 				C49D3B5F235C26410081D765 /* AtrackerDetailViewController.swift */,
-				C455FA4E235961B600516326 /* ATrackerTabItemViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49D3B60235C26410081D765 /* AtrackerDetailViewController.swift in Sources */,
+				C403F875236F3DF7002BE0E2 /* WindowController.swift in Sources */,
 				C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */,
 				C436F0342366C42600A8813B /* EventKitController.swift in Sources */,
 				C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */,

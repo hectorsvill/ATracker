@@ -19,9 +19,6 @@ class ATrackerListViewController: NSViewController {
         setupStatusItem()
         tableView.delegate = self
         tableView.dataSource = self
-        
-        print(aTrackerController.aTrackerList.count)
-        
     }
     
 }
@@ -69,7 +66,10 @@ extension ATrackerListViewController: NSTableViewDataSource{
 extension ATrackerListViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cell = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
-        cell.textField?.stringValue = "\(aTrackerController.aTrackerList[row].title!)"
+        
+        if row != 0 {
+            cell.textField?.stringValue = "\(aTrackerController.aTrackerList[row].title!)"
+        }
         return cell
     }
     
