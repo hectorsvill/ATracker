@@ -10,27 +10,34 @@ import Cocoa
 import EventKit
 
 class EventKitController {
+    private let eventStore: EKEventStore
     
-    var calendarTitle: String
-    let eventStore: EKEventStore
-    
-    var fetchCalendar: EKCalendar? {
-        eventStore.calendars(for: .event).filter{ $0.title == calendarTitle }.first
+    /// returns event calendars array
+    var eventCalendars: [EKCalendar] {
+        eventStore.calendars(for: .event)
     }
     
-    init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
-        self.calendarTitle = calendarTitle
+    /// returns reminder calendars array
+    var reminderCalendars: [EKCalendar] {
+        eventStore.calendars(for: .reminder)
+    }
+    
+    init(eventStore: EKEventStore = EKEventStore()) {
         self.eventStore = eventStore
-        
     }
     
-    
-    func checkIfTaskTrackAppCalendarExist(){
-        if fetchCalendar == nil {
-            createNewCalendar()
+    /// returns true if calendar with title exitst
+    func calendarExits(with title: String) -> Bool {
+        for calendar in eventCalendars {
+            if calendar.title == title {
+                return true
+            }
         }
+        
+        return false
     }
-    
+
+    /// check permission and request access to calendar from user
     func permission() {
         switch EKEventStore.authorizationStatus(for: .event) {
         case .denied:
@@ -43,10 +50,11 @@ class EventKitController {
         }
     }
     
-    func createNewCalendar() {
+    /// create new event calendar inside icloud default, if exist do nothing
+    func createNewCalendar(with title: String, using sourceType: EKSourceType = EKSourceType.calDAV) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
-        newCalendar.title = calendarTitle
-        newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == EKSourceType.local.rawValue}.first!
+        newCalendar.title = title
+        newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == sourceType.rawValue}.first!
         newCalendar.color = .black
         
         do {
@@ -56,12 +64,8 @@ class EventKitController {
         }
     }
     
-    func insertEvent(with atrack: ATrack) {
-        checkIfTaskTrackAppCalendarExist()
-        
-        let calendar = fetchCalendar!
-        //print(calendar)
-
+    /// insert event to  calendar
+    func insertEvent(with calendar: EKCalendar, atrack: ATrack) {
         let event = EKEvent(eventStore: eventStore)
         event.calendar = calendar
         event.title = atrack.title

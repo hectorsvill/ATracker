@@ -25,6 +25,7 @@ class ATrackerTabItemViewController: NSViewController {
     @IBOutlet var startTimeTextField: NSTextField!
     @IBOutlet var endTimeTextField: NSTextField!
     @IBOutlet var startStopButton: NSButton!
+    @IBOutlet var comboBox: NSComboBox!
     
     var mediumDateFormat: DateFormatter {
         let dateFormtater = DateFormatter()
@@ -35,13 +36,26 @@ class ATrackerTabItemViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        comboBox.delegate = self
+        comboBox.dataSource = self
+        comboBox.completes = true
+        comboBox.numberOfVisibleItems = eventKitController.eventCalendars.count
+        comboBox.selectItem(at: 0)
+        
+        
+        
         setupViews()
         eventKitController.permission()
     }
     
     override func viewWillDisappear() {
         super.viewWillDisappear()
-        
+    
+        setOnViewWillDisapear()
+    }
+    
+    private func setOnViewWillDisapear() {
         let trackTitle = titleTextField.stringValue
         let summary = summaryTextView.string
         let buttonTitle = startStopButton.title
@@ -50,7 +64,6 @@ class ATrackerTabItemViewController: NSViewController {
         UserDefaults.standard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
         UserDefaults.standard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
     }
-    
     private func setupViews() {
         titleTextField.stringValue =  UserDefaults.standard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
         summaryTextView.string = UserDefaults.standard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
@@ -105,8 +118,10 @@ extension ATrackerTabItemViewController {
         let atrack = ATrack(title: atrackTitle, summary: summary, start: start, end: end)
         ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
         
-        eventKitController.insertEvent(with: atrack)
+
+        let calendar = eventKitController.eventCalendars[comboBox.indexOfSelectedItem]
         
+        eventKitController.insertEvent(with: calendar, atrack: atrack)
         resetAllViewsAndDateKeys()
     }
 
@@ -129,6 +144,8 @@ extension ATrackerTabItemViewController {
             return
         }
         
+        
+        
         let startStopButtonTitle = startStopButton.title
         setupStartButton(with: startStopButtonTitle)
         
@@ -140,4 +157,16 @@ extension ATrackerTabItemViewController {
             isSaveButton()
         }
     }
+}
+
+extension ATrackerTabItemViewController: NSComboBoxDataSource, NSComboBoxDelegate {
+    
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        return eventKitController.eventCalendars.count
+    }
+    
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        return "\(eventKitController.eventCalendars[index].title)"
+    }
+    
 }
