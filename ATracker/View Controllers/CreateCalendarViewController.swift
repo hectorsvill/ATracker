@@ -20,5 +20,18 @@ class CreateCalendarViewController: NSViewController {
     }
     
     @IBAction func createCalendarButtonPressed(_ sender: Any) {
+        guard !calendarTitleTextField.stringValue.isEmpty else { return }
+        
+        let selectedSegement = segmentControl.selectedSegment
+        print(selectedSegement)
+        print(calendarTitleTextField.stringValue)
+        if selectedSegement == 1 {
+            EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue)
+        }else {
+            EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue, using: .local)
+        }
+        
+        
+        calendarTitleTextField.stringValue = ""
     }
 }
