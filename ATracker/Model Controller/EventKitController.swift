@@ -19,7 +19,12 @@ class EventKitController {
         self.calendarTitle = calendarTitle
         self.eventStore = eventStore
         
-        print(eventCalendars.keys)
+//        print(eventCalendars.keys)
+        
+
+//        let x = (0...10).map{ $0 % 2 == 0 ? $0 : 0}.reduce(0,+)
+        print((1...4).reduce(1, +))
+
     }
     
     // returns event calendar dict

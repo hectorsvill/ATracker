@@ -25,6 +25,7 @@ class ATrackerTabItemViewController: NSViewController {
     @IBOutlet var startTimeTextField: NSTextField!
     @IBOutlet var endTimeTextField: NSTextField!
     @IBOutlet var startStopButton: NSButton!
+    @IBOutlet var comboBox: NSComboBox!
     
     var mediumDateFormat: DateFormatter {
         let dateFormtater = DateFormatter()
@@ -35,13 +36,22 @@ class ATrackerTabItemViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        comboBox.delegate = self
+        comboBox.dataSource = self
+        comboBox.completes = true
+        
         setupViews()
         eventKitController.permission()
     }
     
     override func viewWillDisappear() {
         super.viewWillDisappear()
-        
+    
+        setOnViewWillDisapear()
+    }
+    
+    private func setOnViewWillDisapear() {
         let trackTitle = titleTextField.stringValue
         let summary = summaryTextView.string
         let buttonTitle = startStopButton.title
@@ -50,7 +60,6 @@ class ATrackerTabItemViewController: NSViewController {
         UserDefaults.standard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
         UserDefaults.standard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
     }
-    
     private func setupViews() {
         titleTextField.stringValue =  UserDefaults.standard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
         summaryTextView.string = UserDefaults.standard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
@@ -129,6 +138,8 @@ extension ATrackerTabItemViewController {
             return
         }
         
+        print(comboBox.indexOfSelectedItem)
+        
         let startStopButtonTitle = startStopButton.title
         setupStartButton(with: startStopButtonTitle)
         
@@ -140,4 +151,16 @@ extension ATrackerTabItemViewController {
             isSaveButton()
         }
     }
+}
+
+extension ATrackerTabItemViewController: NSComboBoxDataSource, NSComboBoxDelegate {
+    
+    func numberOfItems(in comboBox: NSComboBox) -> Int {
+        return 4
+    }
+    
+    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
+        return "\(index)"
+    }
+    
 }
