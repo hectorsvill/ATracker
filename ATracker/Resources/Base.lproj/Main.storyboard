@@ -10,7 +10,7 @@
             <objects>
                 <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="⏱TaskTracker" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -18,10 +18,106 @@
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
+                    <connections>
+                        <segue destination="rBt-Rp-q83" kind="relationship" relationship="window.shadowedContentViewController" id="P10-4s-oSI"/>
+                    </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Create Calendar View Controller-->
+        <scene sceneID="2xf-sC-DPH">
+            <objects>
+                <viewController id="rBt-Rp-q83" customClass="CreateCalendarViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="DSk-SE-uib">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Ol-u2-Afk">
+                                <rect key="frame" x="20" y="137" width="410" height="26"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="New Calendar " drawsBackground="YES" id="tYA-cV-Dff">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-rq-RyN">
+                                <rect key="frame" x="297" y="101" width="139" height="32"/>
+                                <buttonCell key="cell" type="push" title="Create Calendar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lnw-c9-VWc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="createCalendarButtonPressed:" target="rBt-Rp-q83" id="Seh-h2-dYs"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KKJ-9b-T7l">
+                                <rect key="frame" x="404" y="13" width="32" height="31"/>
+                                <buttonCell key="cell" type="round" bezelStyle="circular" image="NSInfo" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iQm-xs-f7v">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="2rp-CU-OTN" kind="popover" popoverAnchorView="KKJ-9b-T7l" popoverBehavior="t" preferredEdge="maxY" id="3hU-uF-uN0"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OCj-oI-x1E">
+                                <rect key="frame" x="18" y="183" width="414" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="⏱Create a new calendar to start trackink!" usesSingleLineMode="YES" id="rd4-4u-VNW">
+                                    <font key="font" size="13" name=".AppleColorEmojiUI"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-Vt-M3R">
+                                <rect key="frame" x="18" y="106" width="123" height="24"/>
+                                <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="o6n-C6-dUK">
+                                    <font key="font" metaFont="system"/>
+                                    <segments>
+                                        <segment label="local"/>
+                                        <segment label="iCloud" selected="YES" tag="1"/>
+                                    </segments>
+                                </segmentedCell>
+                            </segmentedControl>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OCj-oI-x1E" secondAttribute="trailing" constant="20" id="0sg-9a-JnH"/>
+                            <constraint firstItem="2ye-Vt-M3R" firstAttribute="top" secondItem="9Ol-u2-Afk" secondAttribute="bottom" constant="8" id="0vs-T0-wfM"/>
+                            <constraint firstItem="MIf-rq-RyN" firstAttribute="top" secondItem="9Ol-u2-Afk" secondAttribute="bottom" constant="8" id="8hf-QQ-Nhg"/>
+                            <constraint firstItem="MIf-rq-RyN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" symbolic="YES" id="A6a-pb-9UL"/>
+                            <constraint firstAttribute="bottom" secondItem="KKJ-9b-T7l" secondAttribute="bottom" constant="20" id="Kad-y0-x39"/>
+                            <constraint firstAttribute="trailing" secondItem="KKJ-9b-T7l" secondAttribute="trailing" constant="20" id="OcT-Ic-s8w"/>
+                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="leading" secondItem="OCj-oI-x1E" secondAttribute="leading" id="Rrh-Nv-IxJ"/>
+                            <constraint firstItem="OCj-oI-x1E" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="Zxb-7w-OQB"/>
+                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="centerY" secondItem="DSk-SE-uib" secondAttribute="centerY" id="epM-Cf-kSu"/>
+                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="centerX" secondItem="DSk-SE-uib" secondAttribute="centerX" id="ogi-MY-Sfw"/>
+                            <constraint firstAttribute="trailing" secondItem="MIf-rq-RyN" secondAttribute="trailing" constant="20" id="q5N-pK-S9v"/>
+                            <constraint firstItem="9Ol-u2-Afk" firstAttribute="top" secondItem="OCj-oI-x1E" secondAttribute="bottom" constant="20" id="rPN-5n-MlY"/>
+                            <constraint firstItem="2ye-Vt-M3R" firstAttribute="leading" secondItem="DSk-SE-uib" secondAttribute="leading" constant="20" id="tXA-Vi-yFa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarTitleTextField" destination="9Ol-u2-Afk" id="kGs-2h-c1M"/>
+                        <outlet property="segmentControl" destination="2ye-Vt-M3R" id="zBS-sf-iIB"/>
+                    </connections>
+                </viewController>
+                <customObject id="VN7-d7-lwz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="769"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uaI-6i-XJv">
+            <objects>
+                <viewController id="2rp-CU-OTN" sceneMemberID="viewController">
+                    <view key="view" id="zOP-pV-23k">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="KGT-Ur-070" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="680" y="787"/>
         </scene>
         <!--⏱ TaskTracker-->
         <scene sceneID="Eh6-00-YoL">
@@ -1057,7 +1153,10 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="75" y="673"/>
+            <point key="canvasLocation" x="103" y="-107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="NSInfo" width="32" height="32"/>
+    </resources>
 </document>
