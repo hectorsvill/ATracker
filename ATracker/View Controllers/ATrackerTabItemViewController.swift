@@ -40,6 +40,10 @@ class ATrackerTabItemViewController: NSViewController {
         comboBox.delegate = self
         comboBox.dataSource = self
         comboBox.completes = true
+        comboBox.numberOfVisibleItems = eventKitController.eventCalendars.count
+        comboBox.selectItem(at: 0)
+        
+        
         
         setupViews()
         eventKitController.permission()
