@@ -10,31 +10,18 @@ import Cocoa
 import EventKit
 
 class EventKitController {
-    
-    var calendarTitle: String
     let eventStore: EKEventStore
     
-    
-    init(calendarTitle: String = "TaskTrackerApp", eventStore: EKEventStore = EKEventStore()) {
-        self.calendarTitle = calendarTitle
-        self.eventStore = eventStore
-    }
-    
-    // returns event calendar dict
     var eventCalendars: [EKCalendar] {
         eventStore.calendars(for: .event)
     }
     
-    // returns true if calendar exist
-    var calendarExist: EKCalendar? {
-        
-        for calendar in eventCalendars {
-            if calendar.title == self.calendarTitle {
-                return calendar
-            }
-        }
-
-        return nil
+    var reminderCalendars: [EKCalendar] {
+        eventStore.calendars(for: .reminder)
+    }
+    
+    init(eventStore: EKEventStore = EKEventStore()) {
+        self.eventStore = eventStore
     }
 
     // check permission and request access to calendar from user
@@ -51,9 +38,9 @@ class EventKitController {
     }
     
     // create calendar inside icloud default
-    func createNewCalendar(using sourceType: EKSourceType = EKSourceType.calDAV) {
+    func createNewCalendar(with title: String, using sourceType: EKSourceType = EKSourceType.calDAV) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
-        newCalendar.title = calendarTitle
+        newCalendar.title = title
         newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == sourceType.rawValue}.first!
         newCalendar.color = .black
         
@@ -64,14 +51,7 @@ class EventKitController {
         }
     }
     
-    func insertEvent(with atrack: ATrack) {
-        if calendarExist != nil{
-            createNewCalendar()
-        }
-        
-        let calendar = calendarExist!
-
-
+    func insertEvent(with calendar: EKCalendar, atrack: ATrack) {
         let event = EKEvent(eventStore: eventStore)
         event.calendar = calendar
         event.title = atrack.title

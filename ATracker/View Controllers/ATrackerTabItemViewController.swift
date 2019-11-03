@@ -118,8 +118,10 @@ extension ATrackerTabItemViewController {
         let atrack = ATrack(title: atrackTitle, summary: summary, start: start, end: end)
         ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
         
-        eventKitController.insertEvent(with: atrack)
+
+        let calendar = eventKitController.eventCalendars[comboBox.indexOfSelectedItem]
         
+        eventKitController.insertEvent(with: calendar, atrack: atrack)
         resetAllViewsAndDateKeys()
     }
 
@@ -142,7 +144,7 @@ extension ATrackerTabItemViewController {
             return
         }
         
-        print(comboBox.indexOfSelectedItem)
+        
         
         let startStopButtonTitle = startStopButton.title
         setupStartButton(with: startStopButtonTitle)
