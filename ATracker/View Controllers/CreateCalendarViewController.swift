@@ -20,14 +20,23 @@ class CreateCalendarViewController: NSViewController {
     @IBAction func createCalendarButtonPressed(_ sender: Any) {
         guard !calendarTitleTextField.stringValue.isEmpty else { return }
         
+        if EventKitController().calendarExits(with: calendarTitleTextField.stringValue) {
+            // Calendar exist error
+            return
+        }
+        
         let selectedSegement = segmentControl.selectedSegment
-        
-        
-        selectedSegement == 1 ?
-            EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue) :
-            EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue, using: .local)
-        
-        
+        selectedSegement == 1 ? createOnIcloud() : createlocal()
+
         calendarTitleTextField.stringValue = ""
     }
+    
+    private func createOnIcloud() {
+        EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue)
+    }
+    
+    private func createlocal() {
+        EventKitController().createNewCalendar(with: calendarTitleTextField.stringValue, using: .local)
+    }
+    
 }
