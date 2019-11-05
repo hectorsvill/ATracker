@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +31,7 @@
         <scene sceneID="2xf-sC-DPH">
             <objects>
                 <viewController id="rBt-Rp-q83" customClass="CreateCalendarViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="DSk-SE-uib">
+                    <view key="view" id="DSk-SE-uib">
                         <rect key="frame" x="0.0" y="0.0" width="490" height="236"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -1177,7 +1178,67 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="103" y="-107"/>
+            <point key="canvasLocation" x="66" y="-207"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="d1B-N1-MZ1">
+            <objects>
+                <application id="lfn-17-Yik" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="ZZF-XS-f5K">
+                        <items>
+                            <menuItem title="EventTrackerApp" id="UlE-eN-zCP">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="EventTrackerApp" systemMenu="apple" id="dWw-YV-BIY">
+                                    <items>
+                                        <menuItem title="About EventTrackerApp" id="qAg-f0-0ka">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wWQ-Lt-8oT"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="Stz-n3-QaU"/>
+                                        <menuItem isSeparatorItem="YES" id="MRx-WE-h1c"/>
+                                        <menuItem title="Services" id="bxo-P5-jfu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="0Wr-XC-Ik4"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="U5H-Pd-Gy9"/>
+                                        <menuItem title="Hide EventTrackerApp" keyEquivalent="h" id="hoP-x4-gyf"/>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="C11-4r-ibk">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Zjg-Ev-jIJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wg2-lV-mtX"/>
+                                        <menuItem title="Quit EventTrackerApp" keyEquivalent="q" id="InS-f0-lH0"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="File" id="Rx5-ng-UFn">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="vqv-Zf-Q7k">
+                                    <items>
+                                        <menuItem title="Close" keyEquivalent="w" id="yxw-LH-fzj"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="2Tp-vw-BV3">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="HNF-Rj-34V">
+                                    <items>
+                                        <menuItem title="EventTrackerApp Help" keyEquivalent="?" id="963-fv-cFn"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Fk8-xE-oTR" id="dOp-LU-X5k"/>
+                    </connections>
+                </application>
+                <customObject id="22M-yB-VJQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Fk8-xE-oTR" customClass="AppDelegate" customModule="EventTrackerApp" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
     </scenes>
     <resources>
