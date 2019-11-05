@@ -20,7 +20,7 @@ private enum UserDefaultKeys: String {
 
 class ATrackerTabItemViewController: NSViewController {
     let udStandard = UserDefaults.standard
-    let eventKitController = EventKitController()
+    var eventKitController: EventKitController?
     var aTrackerController: ATrackerController?
 
     @IBOutlet var titleTextField: NSTextField!
@@ -43,13 +43,13 @@ class ATrackerTabItemViewController: NSViewController {
         comboBox.delegate = self
         comboBox.dataSource = self
         comboBox.completes = true
-        comboBox.numberOfVisibleItems = eventKitController.eventCalendars.count
+        comboBox.numberOfVisibleItems = eventKitController!.eventCalendars.count
         comboBox.selectItem(at: 0)
         
         
         
         setupViews()
-        eventKitController.permission()
+        eventKitController?.permission()
     }
     
     override func viewWillDisappear() {
@@ -130,9 +130,9 @@ extension ATrackerTabItemViewController {
         ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
         
 
-        let calendar = eventKitController.eventCalendars[comboBox.indexOfSelectedItem]
+        let calendar = eventKitController?.eventCalendars[comboBox.indexOfSelectedItem]
         
-        eventKitController.insertEvent(with: calendar, atrack: atrack)
+        eventKitController?.insertEvent(with: calendar!, atrack: atrack)
         resetAllViewsAndDateKeys()
     }
 
@@ -173,11 +173,11 @@ extension ATrackerTabItemViewController {
 extension ATrackerTabItemViewController: NSComboBoxDataSource, NSComboBoxDelegate {
     
     func numberOfItems(in comboBox: NSComboBox) -> Int {
-        return eventKitController.eventCalendars.count
+        return eventKitController?.eventCalendars.count ?? 0
     }
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        return "\(eventKitController.eventCalendars[index].title)"
+        return "\(eventKitController!.eventCalendars[index].title)"
     }
     
 }
