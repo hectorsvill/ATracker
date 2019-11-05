@@ -19,7 +19,9 @@ private enum UserDefaultKeys: String {
 }
 
 class ATrackerTabItemViewController: NSViewController {
+    
     let udStandard = UserDefaults.standard
+    
     var eventKitController: EventKitController?
     var aTrackerController: ATrackerController?
 
@@ -39,14 +41,6 @@ class ATrackerTabItemViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        comboBox.delegate = self
-        comboBox.dataSource = self
-        comboBox.completes = true
-        comboBox.numberOfVisibleItems = eventKitController!.eventCalendars.count
-        comboBox.selectItem(at: 0)
-        
-        
         
         setupViews()
         eventKitController?.permission()
@@ -71,6 +65,15 @@ class ATrackerTabItemViewController: NSViewController {
         udStandard.set(comboBoxState, forKey: UserDefaultKeys.comboBox.rawValue)
     }
     private func setupViews() {
+        
+        // NSComboBox
+        comboBox.delegate = self
+        comboBox.dataSource = self
+        comboBox.completes = true
+        comboBox.numberOfVisibleItems = eventKitController!.eventCalendars.count
+        comboBox.selectItem(at: 0)
+        
+        
         titleTextField.stringValue =  udStandard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
         summaryTextView.string = udStandard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
        

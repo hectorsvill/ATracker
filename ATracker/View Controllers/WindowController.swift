@@ -10,8 +10,9 @@ import Cocoa
 
 class WindowController: NSWindowController {
     let eventKitController = EventKitController()
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let aTrackerController = ATrackerController()
+    
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     
     override func windowDidLoad() {
