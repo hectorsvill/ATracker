@@ -17,9 +17,7 @@ class WindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         setupStatusItem()
-        
-        Thread.callStackSymbols.forEach{print($0)}
-        
+                
     }
 
 }

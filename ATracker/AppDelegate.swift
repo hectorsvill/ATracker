@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         print("applicationDidFinishLaunching")
+        Thread.callStackSymbols.forEach{print($0)}
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -22,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         
         print("applicationShouldTerminateAfterLastWindowClosed")
-        return true
+        return false
     }
 
 }
