@@ -14,10 +14,15 @@ private enum UserDefaultKeys: String {
     case startDate = "startDateString"
     case endDate = "endDateString"
     case buttonstate = "buttonState"
+    case comboBox = "ComboBoxState"
+    
 }
 
 class ATrackerTabItemViewController: NSViewController {
-    let eventKitController = EventKitController()
+    
+    let udStandard = UserDefaults.standard
+    
+    var eventKitController: EventKitController?
     var aTrackerController: ATrackerController?
 
     @IBOutlet var titleTextField: NSTextField!
@@ -37,16 +42,8 @@ class ATrackerTabItemViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        comboBox.delegate = self
-        comboBox.dataSource = self
-        comboBox.completes = true
-        comboBox.numberOfVisibleItems = eventKitController.eventCalendars.count
-        comboBox.selectItem(at: 0)
-        
-        
-        
         setupViews()
-        eventKitController.permission()
+        eventKitController?.permission()
     }
     
     override func viewWillDisappear() {
@@ -59,25 +56,42 @@ class ATrackerTabItemViewController: NSViewController {
         let trackTitle = titleTextField.stringValue
         let summary = summaryTextView.string
         let buttonTitle = startStopButton.title
+        let comboBoxState = comboBox.indexOfSelectedItem
         
-        UserDefaults.standard.set(trackTitle, forKey: UserDefaultKeys.title.rawValue)
-        UserDefaults.standard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
-        UserDefaults.standard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
+        
+        udStandard.set(trackTitle, forKey: UserDefaultKeys.title.rawValue)
+        udStandard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
+        udStandard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
+        udStandard.set(comboBoxState, forKey: UserDefaultKeys.comboBox.rawValue)
     }
     private func setupViews() {
-        titleTextField.stringValue =  UserDefaults.standard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
-        summaryTextView.string = UserDefaults.standard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
-        if let start = UserDefaults.standard.object(forKey: UserDefaultKeys.startDate.rawValue) as? Date {
+        
+        // NSComboBox
+        comboBox.delegate = self
+        comboBox.dataSource = self
+        comboBox.completes = true
+        comboBox.numberOfVisibleItems = eventKitController!.eventCalendars.count
+        comboBox.selectItem(at: 0)
+        
+        
+        titleTextField.stringValue =  udStandard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
+        summaryTextView.string = udStandard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
+       
+        if let start = udStandard.object(forKey: UserDefaultKeys.startDate.rawValue) as? Date {
             startTimeTextField.stringValue = "Task Started on \(mediumDateFormat.string(from: start))"
         }
         
-        if let end = UserDefaults.standard.object(forKey: UserDefaultKeys.endDate.rawValue) as? Date {
+        if let end = udStandard.object(forKey: UserDefaultKeys.endDate.rawValue) as? Date {
             
             endTimeTextField.stringValue = "Task Ended on \(mediumDateFormat.string(from: end))"
         }
         
-        startStopButton.title = UserDefaults.standard.string(forKey: UserDefaultKeys.buttonstate.rawValue) ?? "Start"
+        startStopButton.title = udStandard.string(forKey: UserDefaultKeys.buttonstate.rawValue) ?? "Start"
         startStopButton.action = #selector(startStopButtonPressed)
+        
+        // combobox
+        let comboBoxState = udStandard.integer(forKey: UserDefaultKeys.comboBox.rawValue)
+        comboBox.selectItem(at: comboBoxState)
     }
 }
 
@@ -119,9 +133,9 @@ extension ATrackerTabItemViewController {
         ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
         
 
-        let calendar = eventKitController.eventCalendars[comboBox.indexOfSelectedItem]
+        let calendar = eventKitController?.eventCalendars[comboBox.indexOfSelectedItem]
         
-        eventKitController.insertEvent(with: calendar, atrack: atrack)
+        eventKitController?.insertEvent(with: calendar!, atrack: atrack)
         resetAllViewsAndDateKeys()
     }
 
@@ -162,11 +176,11 @@ extension ATrackerTabItemViewController {
 extension ATrackerTabItemViewController: NSComboBoxDataSource, NSComboBoxDelegate {
     
     func numberOfItems(in comboBox: NSComboBox) -> Int {
-        return eventKitController.eventCalendars.count
+        return eventKitController?.eventCalendars.count ?? 0
     }
     
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        return "\(eventKitController.eventCalendars[index].title)"
+        return "\(eventKitController!.eventCalendars[index].title)"
     }
     
 }

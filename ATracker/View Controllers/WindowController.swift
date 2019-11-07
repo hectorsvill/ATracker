@@ -9,14 +9,16 @@
 import Cocoa
 
 class WindowController: NSWindowController {
-
-    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    let eventKitController = EventKitController()
     let aTrackerController = ATrackerController()
+    
+    let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     
     override func windowDidLoad() {
         super.windowDidLoad()
         setupStatusItem()
+        eventKitController.permission()
     }
 
 }
@@ -37,6 +39,7 @@ extension WindowController {
             fatalError("Error getting status button item")
         }
         vc.aTrackerController = aTrackerController
+        vc.eventKitController = eventKitController
         
         let popoverView = NSPopover()
         popoverView.contentViewController = vc

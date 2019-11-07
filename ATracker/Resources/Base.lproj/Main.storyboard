@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +31,7 @@
         <scene sceneID="2xf-sC-DPH">
             <objects>
                 <viewController id="rBt-Rp-q83" customClass="CreateCalendarViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="DSk-SE-uib">
+                    <view key="view" id="DSk-SE-uib">
                         <rect key="frame" x="0.0" y="0.0" width="490" height="236"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -148,12 +149,12 @@
             <objects>
                 <customObject id="5Rx-n9-aFl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController title="⏱ TaskTracker" storyboardIdentifier="ATrackerItemBar" id="Iaa-ej-FK7" customClass="ATrackerTabItemViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="mT4-qR-438">
-                        <rect key="frame" x="0.0" y="0.0" width="406" height="202"/>
+                    <view key="view" misplaced="YES" id="mT4-qR-438">
+                        <rect key="frame" x="0.0" y="0.0" width="410" height="202"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uO3-34-Run">
-                                <rect key="frame" x="0.0" y="173" width="406" height="21"/>
+                                <rect key="frame" x="0.0" y="173" width="410" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" placeholderString="start tracking ... " drawsBackground="YES" id="QWi-BT-Tun">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -161,25 +162,25 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dfZ-q0-dUo">
-                                <rect key="frame" x="322" y="1" width="70" height="32"/>
+                                <rect key="frame" x="326" y="1" width="70" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DYP-82-Zds">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bz-Ul-sz2">
-                                <rect key="frame" x="0.0" y="62" width="406" height="78"/>
+                                <rect key="frame" x="0.0" y="62" width="410" height="78"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Ysr-ja-VRB">
-                                    <rect key="frame" x="0.0" y="0.0" width="406" height="78"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="410" height="78"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView verticallyResizable="YES" usesFontPanel="YES" findStyle="bar" continuousSpellChecking="YES" allowsCharacterPickerTouchBarItem="NO" allowsDocumentBackgroundColorChange="YES" allowsUndo="YES" allowsImageEditing="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dataDetection="YES" dashSubstitution="YES" textReplacement="YES" spellingCorrection="YES" smartInsertDelete="YES" id="xGX-AA-d3Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="406" height="78"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="78"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="406" height="78"/>
-                                            <size key="maxSize" width="406" height="10000000"/>
+                                            <size key="minSize" width="410" height="78"/>
+                                            <size key="maxSize" width="410" height="10000000"/>
                                             <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <allowedInputSourceLocales>
                                                 <string>eu</string>
@@ -1113,12 +1114,12 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="dqJ-KQ-yJS">
-                                    <rect key="frame" x="390" y="0.0" width="16" height="78"/>
+                                    <rect key="frame" x="394" y="0.0" width="16" height="78"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XOV-bz-z4j">
-                                <rect key="frame" x="-2" y="148" width="410" height="17"/>
+                                <rect key="frame" x="-2" y="148" width="414" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="7Nv-EY-4SL">
                                     <font key="font" metaFont="systemMedium" size="14"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1126,7 +1127,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BNZ-bY-UKr">
-                                <rect key="frame" x="-2" y="37" width="410" height="17"/>
+                                <rect key="frame" x="-2" y="37" width="414" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="xMq-hf-HHG">
                                     <font key="font" metaFont="systemMedium" size="14"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1134,7 +1135,7 @@
                                 </textFieldCell>
                             </textField>
                             <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VQy-jx-4mO">
-                                <rect key="frame" x="16" y="5" width="307" height="25"/>
+                                <rect key="frame" x="20" y="5" width="307" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VQy-jx-4mO" secondAttribute="height" multiplier="16:1" id="bK5-9B-Lqw"/>
                                 </constraints>
@@ -1157,9 +1158,10 @@
                             <constraint firstAttribute="trailing" secondItem="9bz-Ul-sz2" secondAttribute="trailing" id="JgO-aP-86Z"/>
                             <constraint firstItem="uO3-34-Run" firstAttribute="top" secondItem="mT4-qR-438" secondAttribute="top" constant="8" id="Sf8-1Q-EAI"/>
                             <constraint firstAttribute="trailing" secondItem="uO3-34-Run" secondAttribute="trailing" id="UN0-al-kH6"/>
+                            <constraint firstItem="dfZ-q0-dUo" firstAttribute="leading" secondItem="VQy-jx-4mO" secondAttribute="trailing" constant="8" id="XNU-Jx-ITk"/>
                             <constraint firstAttribute="trailing" secondItem="dfZ-q0-dUo" secondAttribute="trailing" constant="20" id="YtM-mq-g8S"/>
                             <constraint firstItem="dfZ-q0-dUo" firstAttribute="top" secondItem="BNZ-bY-UKr" secondAttribute="bottom" constant="8" id="ZEi-MN-pa3"/>
-                            <constraint firstItem="VQy-jx-4mO" firstAttribute="leading" secondItem="mT4-qR-438" secondAttribute="leading" constant="16" id="aNY-g2-xYv"/>
+                            <constraint firstItem="VQy-jx-4mO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mT4-qR-438" secondAttribute="leading" symbolic="YES" id="aNY-g2-xYv"/>
                             <constraint firstAttribute="trailing" secondItem="XOV-bz-z4j" secondAttribute="trailing" id="d0l-yx-fPb"/>
                             <constraint firstItem="dfZ-q0-dUo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mT4-qR-438" secondAttribute="leading" constant="20" symbolic="YES" id="gaZ-zM-NM3"/>
                             <constraint firstAttribute="bottom" secondItem="dfZ-q0-dUo" secondAttribute="bottom" constant="8" id="jiu-c9-ZCN"/>
@@ -1177,7 +1179,68 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="103" y="-107"/>
+            <point key="canvasLocation" x="66" y="-207"/>
+        </scene>
+        <!--Application-->
+        <scene sceneID="d1B-N1-MZ1">
+            <objects>
+                <application id="lfn-17-Yik" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="ZZF-XS-f5K">
+                        <items>
+                            <menuItem title="EventTrackerApp" id="UlE-eN-zCP">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="EventTrackerApp" systemMenu="apple" id="dWw-YV-BIY">
+                                    <items>
+                                        <menuItem title="About EventTrackerApp" id="qAg-f0-0ka">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wWQ-Lt-8oT"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="Stz-n3-QaU"/>
+                                        <menuItem isSeparatorItem="YES" id="MRx-WE-h1c"/>
+                                        <menuItem title="Services" id="bxo-P5-jfu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="0Wr-XC-Ik4"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="U5H-Pd-Gy9"/>
+                                        <menuItem title="Hide EventTrackerApp" keyEquivalent="h" id="hoP-x4-gyf"/>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="C11-4r-ibk">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Zjg-Ev-jIJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wg2-lV-mtX"/>
+                                        <menuItem title="Quit EventTrackerApp" keyEquivalent="q" id="InS-f0-lH0"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="File" id="Rx5-ng-UFn">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="vqv-Zf-Q7k">
+                                    <items>
+                                        <menuItem title="Close" keyEquivalent="w" id="yxw-LH-fzj"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Help" id="2Tp-vw-BV3">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Help" systemMenu="help" id="HNF-Rj-34V">
+                                    <items>
+                                        <menuItem title="EventTrackerApp Help" keyEquivalent="?" id="963-fv-cFn"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Fk8-xE-oTR" id="dOp-LU-X5k"/>
+                    </connections>
+                </application>
+                <customObject id="22M-yB-VJQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="Fk8-xE-oTR" customClass="AppDelegate" customModule="ATracker" customModuleProvider="target"/>
+                <customObject id="v7h-NM-VjY" customClass="NSFontManager"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
     </scenes>
     <resources>
