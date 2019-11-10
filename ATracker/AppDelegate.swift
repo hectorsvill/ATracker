@@ -12,17 +12,14 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
         
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        print("applicationDidFinishLaunching")
-        Thread.callStackSymbols.forEach{print($0)}
+      //  Thread.callStackSymbols.forEach{print($0)}
+        EventKitController().permission()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        print("applicationWillTerminate")
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        
-        print("applicationShouldTerminateAfterLastWindowClosed")
         return false
     }
 

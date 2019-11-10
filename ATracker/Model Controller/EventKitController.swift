@@ -27,7 +27,7 @@ class EventKitController {
     }
     
     /// returns true if calendar with title exitst
-    func calendarExits(with title: String) -> Bool {
+    func calendarExist(with title: String) -> Bool {
         for calendar in eventCalendars {
             if calendar.title == title {
                 return true
@@ -46,7 +46,7 @@ class EventKitController {
             eventStore.requestAccess(to: .event) { _, _ in}
         default:
             NSLog("EventKitController.permission() went to default")
-            eventStore.requestAccess(to: .event) { _, _ in}
+            // eventStore.requestAccess(to: .event) { _, _ in}
         }
     }
     
