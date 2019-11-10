@@ -55,7 +55,6 @@ class EventKitController {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = title
         newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == sourceType.rawValue}.first!
-        newCalendar.color = .black
         
         do {
             try eventStore.saveCalendar(newCalendar, commit: true)
