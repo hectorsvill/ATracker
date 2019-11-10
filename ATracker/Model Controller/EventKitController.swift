@@ -33,6 +33,7 @@ class EventKitController {
             }
         }
         
+        
         return false
     }
 
