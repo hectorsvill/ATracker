@@ -6,7 +6,6 @@
 //  Copyright © 2019 Hector. All rights reserved.
 //
 
-import Cocoa
 import EventKit
 
 class EventKitController {
