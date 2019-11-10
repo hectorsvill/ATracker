@@ -20,7 +20,7 @@ class CreateCalendarViewController: NSViewController {
     @IBAction func createCalendarButtonPressed(_ sender: Any) {
         guard !calendarTitleTextField.stringValue.isEmpty else { return }
         
-        if EventKitController().calendarExits(with: calendarTitleTextField.stringValue) {
+        if EventKitController().calendarExist(with: calendarTitleTextField.stringValue) {
             // Calendar exist error
             return
         }

@@ -26,15 +26,9 @@ class EventKitController {
     }
     
     /// returns true if calendar with title exitst
-    func calendarExits(with title: String) -> Bool {
-        for calendar in eventCalendars {
-            if calendar.title == title {
-                return true
-            }
-        }
-        
-        
-        return false
+    func calendarExist(with title: String) -> Bool {
+        let titles = eventCalendars.map { $0.title }
+        return titles.contains(title)
     }
 
     /// check permission and request access to calendar from user
@@ -49,7 +43,7 @@ class EventKitController {
             eventStore.requestAccess(to: .event) { _, _ in}
         }
     }
-    
+
     /// create new event calendar inside icloud default, if exist do nothing
     func createNewCalendar(with title: String, using sourceType: EKSourceType = EKSourceType.calDAV) {
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
@@ -79,5 +73,9 @@ class EventKitController {
         } catch {
             NSLog("Error with event: \(error)")
         }
+    }
+    
+    func fetchCalendar(with title: String) -> EKCalendar? {
+        return eventCalendars.filter { $0.title == title }.first
     }
 }
