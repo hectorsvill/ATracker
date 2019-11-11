@@ -19,7 +19,6 @@ class ATrackerUnitTests: XCTestCase {
         eventKitController.createNewCalendar(with: calendarTitle, using: .local)
         let calendarTitles = eventKitController.eventCalendars.map { $0.title }
         XCTAssertTrue(calendarTitles.contains(calendarTitle))
-        
     }
     
     func testFetchCalendar() {
@@ -27,7 +26,6 @@ class ATrackerUnitTests: XCTestCase {
         XCTAssertNotNil(calendar)
     }
     
-
     func testInsertEvent() {
         guard let calendar = eventKitController.fetchCalendar(with: calendarTitle) else {
             XCTFail()
@@ -41,14 +39,14 @@ class ATrackerUnitTests: XCTestCase {
         let event = EKEvent(eventStore: store)
         
         event.calendar = calendar
-        event.title = "Test title "
+        event.title = "Test title with a diff "
         event.notes = "notes about the event here!\n \(aweekAgoStart)"
         event.url = nil
         event.startDate = aweekAgoStart
         event.endDate = aweekAgoend
         
-        try! store.save(event, span: .thisEvent)
+        XCTAssertNoThrow(try store.save(event, span: .thisEvent))
     }
-    
+
     
 }
