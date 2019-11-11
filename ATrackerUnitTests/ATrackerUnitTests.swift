@@ -3,20 +3,17 @@
 //  ATrackerUnitTests
 //
 //  Created by Hector on 11/10/19.
-//  Copyright © 2019 Hector. All rights reserved.
+//  Copyright ©2019 Hector. All rights reserved.
 //
 
+import EventKit
 import XCTest
 @testable import ATracker
 
 
 class ATrackerUnitTests: XCTestCase {
-
     let eventKitController = EventKitController()
     let calendarTitle = "Test this Calendar"
-    
-    
-    
     
     func testCreateCalendar() {
         eventKitController.createNewCalendar(with: calendarTitle, using: .local)
@@ -35,9 +32,22 @@ class ATrackerUnitTests: XCTestCase {
             XCTFail()
             return
         }
+        let store = eventKitController.eventStore
         
+        // 20 minute event
         
+        let aweekAgoStart = Date(timeIntervalSinceNow: 2400)
+        let aweekAgoend = aweekAgoStart.addingTimeInterval(1200)
         
+        let event = EKEvent(eventStore: store)
+        event.calendar = calendar
+        event.title = "Test title"
+        event.notes = "notes anout the event here!"
+        event.url = nil
+        event.startDate = aweekAgoStart
+        event.endDate = aweekAgoend
+        
+        try! store.save(event, span: .thisEvent)
         
     }
     

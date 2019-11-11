@@ -9,7 +9,7 @@
 import EventKit
 
 class EventKitController {
-    private let eventStore: EKEventStore
+    private (set) var eventStore: EKEventStore
     
     /// returns event calendars array
     var eventCalendars: [EKCalendar] {
@@ -74,7 +74,17 @@ class EventKitController {
             NSLog("Error with event: \(error)")
         }
     }
+
+    func insertEvent(with event: EKEvent, atrack: ATrack, completion: @escaping (Error?) -> ()) {
+        do {
+            try eventStore.save(event, span: .thisEvent)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
     
+    /// fetch a calendar with a title
     func fetchCalendar(with title: String) -> EKCalendar? {
         return eventCalendars.filter { $0.title == title }.first
     }
