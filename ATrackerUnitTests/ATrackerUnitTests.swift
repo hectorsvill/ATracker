@@ -36,7 +36,7 @@ class ATrackerUnitTests: XCTestCase {
             return
         }
         
-        print(calendar.title)
+        
         
         
     }
