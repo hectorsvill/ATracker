@@ -46,6 +46,8 @@ class EventKitController {
 
     /// create new event calendar inside icloud default, if exist do nothing
     func createNewCalendar(with title: String, using sourceType: EKSourceType = EKSourceType.calDAV) {
+        guard !calendarExist(with: title) else { return}
+
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = title
         newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == sourceType.rawValue}.first!
@@ -74,8 +76,9 @@ class EventKitController {
             NSLog("Error with event: \(error)")
         }
     }
-
-    func insertEvent(with event: EKEvent, atrack: ATrack, completion: @escaping (Error?) -> ()) {
+    
+    /// insert  EKEvent
+    func insertEvent(with event: EKEvent, completion: @escaping (Error?) -> ()) {
         do {
             try eventStore.save(event, span: .thisEvent)
             completion(nil)

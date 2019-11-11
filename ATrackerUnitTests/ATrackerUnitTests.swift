@@ -19,6 +19,7 @@ class ATrackerUnitTests: XCTestCase {
         eventKitController.createNewCalendar(with: calendarTitle, using: .local)
         let calendarTitles = eventKitController.eventCalendars.map { $0.title }
         XCTAssertTrue(calendarTitles.contains(calendarTitle))
+        
     }
     
     func testFetchCalendar() {
@@ -32,23 +33,21 @@ class ATrackerUnitTests: XCTestCase {
             XCTFail()
             return
         }
+        
         let store = eventKitController.eventStore
-        
-        // 20 minute event
-        
-        let aweekAgoStart = Date(timeIntervalSinceNow: 2400)
-        let aweekAgoend = aweekAgoStart.addingTimeInterval(1200)
-        
+        let time: TimeInterval = 360
+        let aweekAgoStart = Date(timeIntervalSinceNow: time)
+        let aweekAgoend = aweekAgoStart.addingTimeInterval( time + 120)
         let event = EKEvent(eventStore: store)
+        
         event.calendar = calendar
-        event.title = "Test title"
-        event.notes = "notes anout the event here!"
+        event.title = "Test title "
+        event.notes = "notes about the event here!\n \(aweekAgoStart)"
         event.url = nil
         event.startDate = aweekAgoStart
         event.endDate = aweekAgoend
         
         try! store.save(event, span: .thisEvent)
-        
     }
     
     
