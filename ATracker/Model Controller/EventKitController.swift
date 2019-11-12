@@ -9,7 +9,7 @@
 import EventKit
 
 class EventKitController {
-    private let eventStore: EKEventStore
+    private (set) var eventStore: EKEventStore
     
     /// returns event calendars array
     var eventCalendars: [EKCalendar] {
@@ -26,14 +26,9 @@ class EventKitController {
     }
     
     /// returns true if calendar with title exitst
-    func calendarExits(with title: String) -> Bool {
-        for calendar in eventCalendars {
-            if calendar.title == title {
-                return true
-            }
-        }
-        
-        return false
+    func calendarExist(with title: String) -> Bool {
+        let titles = eventCalendars.map { $0.title }
+        return titles.contains(title)
     }
 
     /// check permission and request access to calendar from user
@@ -48,9 +43,11 @@ class EventKitController {
             eventStore.requestAccess(to: .event) { _, _ in}
         }
     }
-    
+
     /// create new event calendar inside icloud default, if exist do nothing
     func createNewCalendar(with title: String, using sourceType: EKSourceType = EKSourceType.calDAV) {
+        guard !calendarExist(with: title) else { return}
+
         let newCalendar = EKCalendar(for: .event, eventStore: eventStore)
         newCalendar.title = title
         newCalendar.source = eventStore.sources.filter { $0.sourceType.rawValue == sourceType.rawValue}.first!
@@ -78,5 +75,20 @@ class EventKitController {
         } catch {
             NSLog("Error with event: \(error)")
         }
+    }
+    
+    /// insert  EKEvent
+    func insertEvent(with event: EKEvent, completion: @escaping (Error?) -> ()) {
+        do {
+            try eventStore.save(event, span: .thisEvent)
+            completion(nil)
+        } catch {
+            completion(error)
+        }
+    }
+    
+    /// fetch a calendar with a title
+    func fetchCalendar(with title: String) -> EKCalendar? {
+        return eventCalendars.filter { $0.title == title }.first
     }
 }

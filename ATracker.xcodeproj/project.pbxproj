@@ -11,6 +11,7 @@
 		C403F877236F4A8F002BE0E2 /* CreateCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403F876236F4A8F002BE0E2 /* CreateCalendarViewController.swift */; };
 		C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */; };
 		C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */; };
+		C431ACCD2378CE5300DC355B /* ATrackerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C431ACCC2378CE5300DC355B /* ATrackerUnitTests.swift */; };
 		C436F0342366C42600A8813B /* EventKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436F0332366C42600A8813B /* EventKitController.swift */; };
 		C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451F92358131B007F0613 /* AppDelegate.swift */; };
 		C45451FE2358131E007F0613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45451FD2358131E007F0613 /* Assets.xcassets */; };
@@ -21,11 +22,24 @@
 		C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B68235D5C170081D765 /* ATrackerController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C431ACCF2378CE5300DC355B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C45451EE2358131B007F0613 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C45451F52358131B007F0613;
+			remoteInfo = ATracker;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		C403F874236F3DF7002BE0E2 /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		C403F876236F4A8F002BE0E2 /* CreateCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCalendarViewController.swift; sourceTree = "<group>"; };
 		C41CCC4C235D5E9D007280BB /* ATracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ATracker.xcdatamodel; sourceTree = "<group>"; };
 		C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ATrack+Convenience.swift"; sourceTree = "<group>"; };
+		C431ACCA2378CE5300DC355B /* ATrackerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATrackerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C431ACCC2378CE5300DC355B /* ATrackerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerUnitTests.swift; sourceTree = "<group>"; };
+		C431ACCE2378CE5300DC355B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C436F0332366C42600A8813B /* EventKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitController.swift; sourceTree = "<group>"; };
 		C45451F62358131B007F0613 /* ATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45451F92358131B007F0613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C431ACC72378CE5300DC355B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C45451F32358131B007F0613 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C431ACCB2378CE5300DC355B /* ATrackerUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				C431ACCC2378CE5300DC355B /* ATrackerUnitTests.swift */,
+				C431ACCE2378CE5300DC355B /* Info.plist */,
+			);
+			path = ATrackerUnitTests;
+			sourceTree = "<group>";
+		};
 		C45451ED2358131B007F0613 = {
 			isa = PBXGroup;
 			children = (
 				C45451F82358131B007F0613 /* ATracker */,
+				C431ACCB2378CE5300DC355B /* ATrackerUnitTests */,
 				C45451F72358131B007F0613 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C45451F62358131B007F0613 /* ATracker.app */,
+				C431ACCA2378CE5300DC355B /* ATrackerUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +152,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C431ACC92378CE5300DC355B /* ATrackerUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C431ACD32378CE5300DC355B /* Build configuration list for PBXNativeTarget "ATrackerUnitTests" */;
+			buildPhases = (
+				C431ACC62378CE5300DC355B /* Sources */,
+				C431ACC72378CE5300DC355B /* Frameworks */,
+				C431ACC82378CE5300DC355B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C431ACD02378CE5300DC355B /* PBXTargetDependency */,
+			);
+			name = ATrackerUnitTests;
+			productName = ATrackerUnitTests;
+			productReference = C431ACCA2378CE5300DC355B /* ATrackerUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C45451F52358131B007F0613 /* ATracker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C45452062358131E007F0613 /* Build configuration list for PBXNativeTarget "ATracker" */;
@@ -143,10 +193,14 @@
 		C45451EE2358131B007F0613 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Hector;
 				TargetAttributes = {
+					C431ACC92378CE5300DC355B = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = C45451F52358131B007F0613;
+					};
 					C45451F52358131B007F0613 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -166,11 +220,19 @@
 			projectRoot = "";
 			targets = (
 				C45451F52358131B007F0613 /* ATracker */,
+				C431ACC92378CE5300DC355B /* ATrackerUnitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C431ACC82378CE5300DC355B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C45451F42358131B007F0613 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,6 +246,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C431ACC62378CE5300DC355B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C431ACCD2378CE5300DC355B /* ATrackerUnitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C45451F22358131B007F0613 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +272,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C431ACD02378CE5300DC355B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C45451F52358131B007F0613 /* ATracker */;
+			targetProxy = C431ACCF2378CE5300DC355B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C45451FF2358131E007F0613 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -214,6 +292,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C431ACD12378CE5300DC355B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 97AS6JS382;
+				INFOPLIST_FILE = ATrackerUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.ATrackerUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATracker.app/Contents/MacOS/ATracker";
+			};
+			name = Debug;
+		};
+		C431ACD22378CE5300DC355B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 97AS6JS382;
+				INFOPLIST_FILE = ATrackerUnitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.ATrackerUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ATracker.app/Contents/MacOS/ATracker";
+			};
+			name = Release;
+		};
 		C45452042358131E007F0613 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -264,7 +382,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -318,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -372,6 +490,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C431ACD32378CE5300DC355B /* Build configuration list for PBXNativeTarget "ATrackerUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C431ACD12378CE5300DC355B /* Debug */,
+				C431ACD22378CE5300DC355B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C45451F12358131B007F0613 /* Build configuration list for PBXProject "ATracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
