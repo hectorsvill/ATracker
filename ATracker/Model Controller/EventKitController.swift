@@ -91,4 +91,11 @@ class EventKitController {
     func fetchCalendar(with title: String) -> EKCalendar? {
         return eventCalendars.filter { $0.title == title }.first
     }
+    
+    /// fetch events from all calendars stored in a given range, specify specific calendars in array
+    func fetchEvents(start: Date, end: Date, calendars: [EKCalendar]? = nil) -> [EKEvent]? {
+        // Create the predicate from the event store's instance method.
+        let eventsPredicate = eventStore.predicateForEvents(withStart: start, end: end, calendars: calendars)
+        return eventStore.events(matching: eventsPredicate)
+    }
 }
