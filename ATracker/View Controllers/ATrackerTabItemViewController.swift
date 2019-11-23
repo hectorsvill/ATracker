@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import EventKit
+import EasyEventKit
 
 private enum UserDefaultKeys: String {
     case title = "title"
@@ -130,12 +132,14 @@ extension ATrackerTabItemViewController {
         let summary = summaryTextView.string
  
         let atrack = ATrack(title: atrackTitle, summary: summary, start: start, end: end)
+        
+        
         ATrackerController().createATrack(title: atrackTitle, summary: summary, start: start, end: end)
         
 
         let calendar = eventKitController?.eventCalendars[comboBox.indexOfSelectedItem]
         
-        eventKitController?.insertEvent(with: calendar!, atrack: atrack)
+//        eventKitController?.insertEvent(with: calendar!, atrack: atrack)
         resetAllViewsAndDateKeys()
     }
 
@@ -157,8 +161,6 @@ extension ATrackerTabItemViewController {
         if titleTextField.stringValue.isEmpty {
             return
         }
-        
-        
         
         let startStopButtonTitle = startStopButton.title
         setupStartButton(with: startStopButtonTitle)

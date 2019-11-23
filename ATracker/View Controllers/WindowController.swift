@@ -7,6 +7,8 @@
 //
 
 import Cocoa
+import EasyEventKit
+
 
 class WindowController: NSWindowController {
     let eventKitController = EventKitController()

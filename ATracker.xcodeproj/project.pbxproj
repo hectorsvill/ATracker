@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */; };
 		C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41CCC4E235D603F007280BB /* ATrack+Convenience.swift */; };
 		C431ACCD2378CE5300DC355B /* ATrackerUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C431ACCC2378CE5300DC355B /* ATrackerUnitTests.swift */; };
-		C436F0342366C42600A8813B /* EventKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C436F0332366C42600A8813B /* EventKitController.swift */; };
 		C45451FA2358131B007F0613 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45451F92358131B007F0613 /* AppDelegate.swift */; };
 		C45451FE2358131E007F0613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C45451FD2358131E007F0613 /* Assets.xcassets */; };
 		C45452012358131E007F0613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C45451FF2358131E007F0613 /* Main.storyboard */; };
@@ -20,6 +19,7 @@
 		C4748B062366318D001416A0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45452022358131E007F0613 /* Info.plist */; };
 		C49D3B67235D58710081D765 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B66235D58710081D765 /* CoreDataStack.swift */; };
 		C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49D3B68235D5C170081D765 /* ATrackerController.swift */; };
+		C4E9C50E2388D4B800DF3E2E /* EasyEventKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4E9C50D2388D4B800DF3E2E /* EasyEventKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 		C431ACCA2378CE5300DC355B /* ATrackerUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ATrackerUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C431ACCC2378CE5300DC355B /* ATrackerUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATrackerUnitTests.swift; sourceTree = "<group>"; };
 		C431ACCE2378CE5300DC355B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C436F0332366C42600A8813B /* EventKitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventKitController.swift; sourceTree = "<group>"; };
 		C45451F62358131B007F0613 /* ATracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ATracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C45451F92358131B007F0613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C45451FD2358131E007F0613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4E9C50E2388D4B800DF3E2E /* EasyEventKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				C49D3B68235D5C170081D765 /* ATrackerController.swift */,
-				C436F0332366C42600A8813B /* EventKitController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -183,6 +182,9 @@
 			dependencies = (
 			);
 			name = ATracker;
+			packageProductDependencies = (
+				C4E9C50D2388D4B800DF3E2E /* EasyEventKit */,
+			);
 			productName = ATracker;
 			productReference = C45451F62358131B007F0613 /* ATracker.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +217,9 @@
 				Base,
 			);
 			mainGroup = C45451ED2358131B007F0613;
+			packageReferences = (
+				C4E9C50C2388D4B800DF3E2E /* XCRemoteSwiftPackageReference "EasyEventKit" */,
+			);
 			productRefGroup = C45451F72358131B007F0613 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -260,7 +265,6 @@
 			files = (
 				C403F875236F3DF7002BE0E2 /* WindowController.swift in Sources */,
 				C41CCC4F235D603F007280BB /* ATrack+Convenience.swift in Sources */,
-				C436F0342366C42600A8813B /* EventKitController.swift in Sources */,
 				C41CCC4D235D5E9D007280BB /* ATracker.xcdatamodeld in Sources */,
 				C455FA4F235961B600516326 /* ATrackerTabItemViewController.swift in Sources */,
 				C49D3B69235D5C170081D765 /* ATrackerController.swift in Sources */,
@@ -382,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -459,7 +463,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.ATracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -480,7 +484,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hectorstevenvillasano.ATracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -518,6 +522,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C4E9C50C2388D4B800DF3E2E /* XCRemoteSwiftPackageReference "EasyEventKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hectorsvill/EasyEventKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C4E9C50D2388D4B800DF3E2E /* EasyEventKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4E9C50C2388D4B800DF3E2E /* XCRemoteSwiftPackageReference "EasyEventKit" */;
+			productName = EasyEventKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C41CCC4B235D5E9D007280BB /* ATracker.xcdatamodeld */ = {
