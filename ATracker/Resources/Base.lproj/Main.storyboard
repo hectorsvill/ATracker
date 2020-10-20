@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -43,7 +43,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-rq-RyN">
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MIf-rq-RyN">
                                 <rect key="frame" x="337" y="37" width="139" height="32"/>
                                 <buttonCell key="cell" type="push" title="Create Calendar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lnw-c9-VWc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -61,7 +61,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <segmentedControl verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-Vt-M3R">
+                            <segmentedControl verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ye-Vt-M3R">
                                 <rect key="frame" x="18" y="42" width="163" height="24"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="o6n-C6-dUK">
                                     <font key="font" metaFont="system"/>
@@ -124,6 +124,7 @@
                     </view>
                     <connections>
                         <outlet property="calendarTitleTextField" destination="9Ol-u2-Afk" id="kGs-2h-c1M"/>
+                        <outlet property="infoButton" destination="KKJ-9b-T7l" id="PYO-eh-WzL"/>
                         <outlet property="segmentControl" destination="2ye-Vt-M3R" id="zBS-sf-iIB"/>
                     </connections>
                 </viewController>
@@ -149,7 +150,7 @@
             <objects>
                 <customObject id="5Rx-n9-aFl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController title="⏱ TaskTracker" storyboardIdentifier="ATrackerItemBar" id="Iaa-ej-FK7" customClass="ATrackerTabItemViewController" customModule="ATracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="mT4-qR-438">
+                    <view key="view" id="mT4-qR-438">
                         <rect key="frame" x="0.0" y="0.0" width="410" height="202"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>

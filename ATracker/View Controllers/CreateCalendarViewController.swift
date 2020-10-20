@@ -10,11 +10,14 @@ import Cocoa
 
 class CreateCalendarViewController: NSViewController {
 
+    @IBOutlet weak var infoButton: NSButton!
     @IBOutlet var calendarTitleTextField: NSTextField!
     @IBOutlet var segmentControl: NSSegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        infoButton.isHidden = true
     }
     
     @IBAction func createCalendarButtonPressed(_ sender: Any) {

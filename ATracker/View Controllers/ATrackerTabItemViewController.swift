@@ -20,7 +20,7 @@ private enum UserDefaultKeys: String {
 
 class ATrackerTabItemViewController: NSViewController {
     
-    let udStandard = UserDefaults.standard
+    let usserDefaults = UserDefaults.standard
     
     var eventKitController: EventKitController?
     var aTrackerController: ATrackerController?
@@ -59,10 +59,10 @@ class ATrackerTabItemViewController: NSViewController {
         let comboBoxState = comboBox.indexOfSelectedItem
         
         
-        udStandard.set(trackTitle, forKey: UserDefaultKeys.title.rawValue)
-        udStandard.set(summary, forKey: UserDefaultKeys.summary.rawValue)
-        udStandard.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
-        udStandard.set(comboBoxState, forKey: UserDefaultKeys.comboBox.rawValue)
+        usserDefaults.set(trackTitle, forKey: UserDefaultKeys.title.rawValue)
+        usserDefaults.set(summary, forKey: UserDefaultKeys.summary.rawValue)
+        usserDefaults.set(buttonTitle, forKey: UserDefaultKeys.buttonstate.rawValue)
+        usserDefaults.set(comboBoxState, forKey: UserDefaultKeys.comboBox.rawValue)
     }
     private func setupViews() {
         
@@ -74,23 +74,23 @@ class ATrackerTabItemViewController: NSViewController {
         comboBox.selectItem(at: 0)
         
         
-        titleTextField.stringValue =  udStandard.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
-        summaryTextView.string = udStandard.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
+        titleTextField.stringValue =  usserDefaults.string(forKey: UserDefaultKeys.title.rawValue) ?? ""
+        summaryTextView.string = usserDefaults.string(forKey: UserDefaultKeys.summary.rawValue) ?? ""
        
-        if let start = udStandard.object(forKey: UserDefaultKeys.startDate.rawValue) as? Date {
+        if let start = usserDefaults.object(forKey: UserDefaultKeys.startDate.rawValue) as? Date {
             startTimeTextField.stringValue = "Task Started on \(mediumDateFormat.string(from: start))"
         }
         
-        if let end = udStandard.object(forKey: UserDefaultKeys.endDate.rawValue) as? Date {
+        if let end = usserDefaults.object(forKey: UserDefaultKeys.endDate.rawValue) as? Date {
             
             endTimeTextField.stringValue = "Task Ended on \(mediumDateFormat.string(from: end))"
         }
         
-        startStopButton.title = udStandard.string(forKey: UserDefaultKeys.buttonstate.rawValue) ?? "Start"
+        startStopButton.title = usserDefaults.string(forKey: UserDefaultKeys.buttonstate.rawValue) ?? "Start"
         startStopButton.action = #selector(startStopButtonPressed)
         
         // combobox
-        let comboBoxState = udStandard.integer(forKey: UserDefaultKeys.comboBox.rawValue)
+        let comboBoxState = usserDefaults.integer(forKey: UserDefaultKeys.comboBox.rawValue)
         comboBox.selectItem(at: comboBoxState)
     }
 }
